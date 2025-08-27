@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Colombo–Kandy",
+    "origin": "Colombo",
+    "destination": "Kandy",
+    "distanceKm": 115
+  },
+  {
+    "id": 2,
+    "name": "Colombo–Galle",
+    "origin": "Colombo",
+    "destination": "Galle",
+    "distanceKm": 120
+  },
+  {
+    "id": 3,
+    "name": "Colombo–Jaffna",
+    "origin": "Colombo",
+    "destination": "Jaffna",
+    "distanceKm": 400
+  },
+  {
+    "id": 4,
+    "name": "Colombo–Anuradhapura",
+    "origin": "Colombo",
+    "destination": "Anuradhapura",
+    "distanceKm": 205
+  },
+  {
+    "id": 5,
+    "name": "Colombo–Badulla",
+    "origin": "Colombo",
+    "destination": "Badulla",
+    "distanceKm": 230
+  }
+]

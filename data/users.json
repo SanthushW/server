@@ -1,0 +1,27 @@
+[
+  {
+    "username": "op1",
+    "password": "$2a$10$RTMVIyPOmctPOM3BhK5a3eqoCtpje4.Cq1nnC30QaFOnuRL2Zggre",
+    "role": "operator"
+  },
+  {
+    "username": "test",
+    "password": "$2a$10$wArWxbS46PE5kZaSn11nFOi1VGpWNo5fGWab7V2U/ecks6C8cDkN.",
+    "role": "operator"
+  },
+  {
+    "username": "wsanthush2002@gmail.com",
+    "password": "$2a$10$5o6opw78Qi7kFinpCLX2lO6.EspRpv98VjRFxLLEQclR8XzkbDz4i",
+    "role": "operator"
+  },
+  {
+    "username": "Admin",
+    "password": "$2a$10$NT2FPYBJYWxYF.mM9vXY1.sGcbYnNpJH7pDncoRI35naoVfxw3MhW",
+    "role": "admin"
+  },
+  {
+    "username": "user",
+    "password": "$2a$10$R9C75TUkr5wunroSGCuDo.IVFf9yCHGTea7TtbJQbDP5QeFw3mMk2",
+    "role": "viewer"
+  }
+]

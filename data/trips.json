@@ -1,0 +1,562 @@
+[
+  {
+    "id": 6000,
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-18T06:00:00.000Z",
+    "endTime": "2025-08-18T08:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6001,
+    "busId": 102,
+    "routeId": 1,
+    "startTime": "2025-08-18T07:00:00.000Z",
+    "endTime": "2025-08-18T09:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6002,
+    "busId": 103,
+    "routeId": 1,
+    "startTime": "2025-08-18T08:00:00.000Z",
+    "endTime": "2025-08-18T10:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6003,
+    "busId": 104,
+    "routeId": 1,
+    "startTime": "2025-08-18T09:00:00.000Z",
+    "endTime": "2025-08-18T11:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6004,
+    "busId": 105,
+    "routeId": 1,
+    "startTime": "2025-08-18T10:00:00.000Z",
+    "endTime": "2025-08-18T12:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6005,
+    "busId": 201,
+    "routeId": 2,
+    "startTime": "2025-08-18T11:00:00.000Z",
+    "endTime": "2025-08-18T13:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6006,
+    "busId": 202,
+    "routeId": 2,
+    "startTime": "2025-08-18T12:00:00.000Z",
+    "endTime": "2025-08-18T14:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6007,
+    "busId": 203,
+    "routeId": 2,
+    "startTime": "2025-08-18T13:00:00.000Z",
+    "endTime": "2025-08-18T15:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6008,
+    "busId": 204,
+    "routeId": 2,
+    "startTime": "2025-08-18T14:00:00.000Z",
+    "endTime": "2025-08-18T16:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6009,
+    "busId": 205,
+    "routeId": 2,
+    "startTime": "2025-08-18T15:00:00.000Z",
+    "endTime": "2025-08-18T17:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6010,
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-19T06:00:00.000Z",
+    "endTime": "2025-08-19T08:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6011,
+    "busId": 102,
+    "routeId": 1,
+    "startTime": "2025-08-19T07:00:00.000Z",
+    "endTime": "2025-08-19T09:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6012,
+    "busId": 103,
+    "routeId": 1,
+    "startTime": "2025-08-19T08:00:00.000Z",
+    "endTime": "2025-08-19T10:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6013,
+    "busId": 104,
+    "routeId": 1,
+    "startTime": "2025-08-19T09:00:00.000Z",
+    "endTime": "2025-08-19T11:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6014,
+    "busId": 105,
+    "routeId": 1,
+    "startTime": "2025-08-19T10:00:00.000Z",
+    "endTime": "2025-08-19T12:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6015,
+    "busId": 201,
+    "routeId": 2,
+    "startTime": "2025-08-19T11:00:00.000Z",
+    "endTime": "2025-08-19T13:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6016,
+    "busId": 202,
+    "routeId": 2,
+    "startTime": "2025-08-19T12:00:00.000Z",
+    "endTime": "2025-08-19T14:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6017,
+    "busId": 203,
+    "routeId": 2,
+    "startTime": "2025-08-19T13:00:00.000Z",
+    "endTime": "2025-08-19T15:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6018,
+    "busId": 204,
+    "routeId": 2,
+    "startTime": "2025-08-19T14:00:00.000Z",
+    "endTime": "2025-08-19T16:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6019,
+    "busId": 205,
+    "routeId": 2,
+    "startTime": "2025-08-19T15:00:00.000Z",
+    "endTime": "2025-08-19T17:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6020,
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-20T06:00:00.000Z",
+    "endTime": "2025-08-20T08:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6021,
+    "busId": 102,
+    "routeId": 1,
+    "startTime": "2025-08-20T07:00:00.000Z",
+    "endTime": "2025-08-20T09:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6022,
+    "busId": 103,
+    "routeId": 1,
+    "startTime": "2025-08-20T08:00:00.000Z",
+    "endTime": "2025-08-20T10:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6023,
+    "busId": 104,
+    "routeId": 1,
+    "startTime": "2025-08-20T09:00:00.000Z",
+    "endTime": "2025-08-20T11:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6024,
+    "busId": 105,
+    "routeId": 1,
+    "startTime": "2025-08-20T10:00:00.000Z",
+    "endTime": "2025-08-20T12:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6025,
+    "busId": 201,
+    "routeId": 2,
+    "startTime": "2025-08-20T11:00:00.000Z",
+    "endTime": "2025-08-20T13:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6026,
+    "busId": 202,
+    "routeId": 2,
+    "startTime": "2025-08-20T12:00:00.000Z",
+    "endTime": "2025-08-20T14:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6027,
+    "busId": 203,
+    "routeId": 2,
+    "startTime": "2025-08-20T13:00:00.000Z",
+    "endTime": "2025-08-20T15:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6028,
+    "busId": 204,
+    "routeId": 2,
+    "startTime": "2025-08-20T14:00:00.000Z",
+    "endTime": "2025-08-20T16:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6029,
+    "busId": 205,
+    "routeId": 2,
+    "startTime": "2025-08-20T15:00:00.000Z",
+    "endTime": "2025-08-20T17:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6030,
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-21T06:00:00.000Z",
+    "endTime": "2025-08-21T08:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6031,
+    "busId": 102,
+    "routeId": 1,
+    "startTime": "2025-08-21T07:00:00.000Z",
+    "endTime": "2025-08-21T09:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6032,
+    "busId": 103,
+    "routeId": 1,
+    "startTime": "2025-08-21T08:00:00.000Z",
+    "endTime": "2025-08-21T10:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6033,
+    "busId": 104,
+    "routeId": 1,
+    "startTime": "2025-08-21T09:00:00.000Z",
+    "endTime": "2025-08-21T11:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6034,
+    "busId": 105,
+    "routeId": 1,
+    "startTime": "2025-08-21T10:00:00.000Z",
+    "endTime": "2025-08-21T12:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6035,
+    "busId": 201,
+    "routeId": 2,
+    "startTime": "2025-08-21T11:00:00.000Z",
+    "endTime": "2025-08-21T13:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6036,
+    "busId": 202,
+    "routeId": 2,
+    "startTime": "2025-08-21T12:00:00.000Z",
+    "endTime": "2025-08-21T14:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6037,
+    "busId": 203,
+    "routeId": 2,
+    "startTime": "2025-08-21T13:00:00.000Z",
+    "endTime": "2025-08-21T15:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6038,
+    "busId": 204,
+    "routeId": 2,
+    "startTime": "2025-08-21T14:00:00.000Z",
+    "endTime": "2025-08-21T16:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6039,
+    "busId": 205,
+    "routeId": 2,
+    "startTime": "2025-08-21T15:00:00.000Z",
+    "endTime": "2025-08-21T17:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6040,
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-22T06:00:00.000Z",
+    "endTime": "2025-08-22T08:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6041,
+    "busId": 102,
+    "routeId": 1,
+    "startTime": "2025-08-22T07:00:00.000Z",
+    "endTime": "2025-08-22T09:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6042,
+    "busId": 103,
+    "routeId": 1,
+    "startTime": "2025-08-22T08:00:00.000Z",
+    "endTime": "2025-08-22T10:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6043,
+    "busId": 104,
+    "routeId": 1,
+    "startTime": "2025-08-22T09:00:00.000Z",
+    "endTime": "2025-08-22T11:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6044,
+    "busId": 105,
+    "routeId": 1,
+    "startTime": "2025-08-22T10:00:00.000Z",
+    "endTime": "2025-08-22T12:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6045,
+    "busId": 201,
+    "routeId": 2,
+    "startTime": "2025-08-22T11:00:00.000Z",
+    "endTime": "2025-08-22T13:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6046,
+    "busId": 202,
+    "routeId": 2,
+    "startTime": "2025-08-22T12:00:00.000Z",
+    "endTime": "2025-08-22T14:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6047,
+    "busId": 203,
+    "routeId": 2,
+    "startTime": "2025-08-22T13:00:00.000Z",
+    "endTime": "2025-08-22T15:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6048,
+    "busId": 204,
+    "routeId": 2,
+    "startTime": "2025-08-22T14:00:00.000Z",
+    "endTime": "2025-08-22T16:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6049,
+    "busId": 205,
+    "routeId": 2,
+    "startTime": "2025-08-22T15:00:00.000Z",
+    "endTime": "2025-08-22T17:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6050,
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-23T06:00:00.000Z",
+    "endTime": "2025-08-23T08:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6051,
+    "busId": 102,
+    "routeId": 1,
+    "startTime": "2025-08-23T07:00:00.000Z",
+    "endTime": "2025-08-23T09:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6052,
+    "busId": 103,
+    "routeId": 1,
+    "startTime": "2025-08-23T08:00:00.000Z",
+    "endTime": "2025-08-23T10:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6053,
+    "busId": 104,
+    "routeId": 1,
+    "startTime": "2025-08-23T09:00:00.000Z",
+    "endTime": "2025-08-23T11:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6054,
+    "busId": 105,
+    "routeId": 1,
+    "startTime": "2025-08-23T10:00:00.000Z",
+    "endTime": "2025-08-23T12:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6055,
+    "busId": 201,
+    "routeId": 2,
+    "startTime": "2025-08-23T11:00:00.000Z",
+    "endTime": "2025-08-23T13:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6056,
+    "busId": 202,
+    "routeId": 2,
+    "startTime": "2025-08-23T12:00:00.000Z",
+    "endTime": "2025-08-23T14:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6057,
+    "busId": 203,
+    "routeId": 2,
+    "startTime": "2025-08-23T13:00:00.000Z",
+    "endTime": "2025-08-23T15:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6058,
+    "busId": 204,
+    "routeId": 2,
+    "startTime": "2025-08-23T14:00:00.000Z",
+    "endTime": "2025-08-23T16:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6059,
+    "busId": 205,
+    "routeId": 2,
+    "startTime": "2025-08-23T15:00:00.000Z",
+    "endTime": "2025-08-23T17:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6060,
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-24T06:00:00.000Z",
+    "endTime": "2025-08-24T08:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6061,
+    "busId": 102,
+    "routeId": 1,
+    "startTime": "2025-08-24T07:00:00.000Z",
+    "endTime": "2025-08-24T09:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6062,
+    "busId": 103,
+    "routeId": 1,
+    "startTime": "2025-08-24T08:00:00.000Z",
+    "endTime": "2025-08-24T10:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6063,
+    "busId": 104,
+    "routeId": 1,
+    "startTime": "2025-08-24T09:00:00.000Z",
+    "endTime": "2025-08-24T11:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6064,
+    "busId": 105,
+    "routeId": 1,
+    "startTime": "2025-08-24T10:00:00.000Z",
+    "endTime": "2025-08-24T12:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6065,
+    "busId": 201,
+    "routeId": 2,
+    "startTime": "2025-08-24T11:00:00.000Z",
+    "endTime": "2025-08-24T13:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6066,
+    "busId": 202,
+    "routeId": 2,
+    "startTime": "2025-08-24T12:00:00.000Z",
+    "endTime": "2025-08-24T14:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6067,
+    "busId": 203,
+    "routeId": 2,
+    "startTime": "2025-08-24T13:00:00.000Z",
+    "endTime": "2025-08-24T15:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6068,
+    "busId": 204,
+    "routeId": 2,
+    "startTime": "2025-08-24T14:00:00.000Z",
+    "endTime": "2025-08-24T16:00:00.000Z",
+    "status": "scheduled"
+  },
+  {
+    "id": 6069,
+    "busId": 205,
+    "routeId": 2,
+    "startTime": "2025-08-24T15:00:00.000Z",
+    "endTime": "2025-08-24T17:00:00.000Z",
+    "status": "scheduled"
+  }
+]

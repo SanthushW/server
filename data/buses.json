@@ -1,0 +1,222 @@
+[
+  {
+    "id": 101,
+    "routeId": 1,
+    "plate": "NC-1001",
+    "status": "active",
+    "gps": {
+      "lat": 6.9271,
+      "lng": 79.8612
+    }
+  },
+  {
+    "id": 102,
+    "routeId": 1,
+    "plate": "NC-1002",
+    "status": "inactive",
+    "gps": null
+  },
+  {
+    "id": 103,
+    "routeId": 1,
+    "plate": "NC-1003",
+    "status": "active",
+    "gps": {
+      "lat": 7.2906,
+      "lng": 80.6337
+    }
+  },
+  {
+    "id": 104,
+    "routeId": 1,
+    "plate": "NC-1004",
+    "status": "maintenance",
+    "gps": null
+  },
+  {
+    "id": 105,
+    "routeId": 1,
+    "plate": "NC-1005",
+    "status": "active",
+    "gps": {
+      "lat": 7.1,
+      "lng": 80.3
+    }
+  },
+  {
+    "id": 201,
+    "routeId": 2,
+    "plate": "NG-2001",
+    "status": "active",
+    "gps": {
+      "lat": 6.0535,
+      "lng": 80.221
+    }
+  },
+  {
+    "id": 202,
+    "routeId": 2,
+    "plate": "NG-2002",
+    "status": "inactive",
+    "gps": null
+  },
+  {
+    "id": 203,
+    "routeId": 2,
+    "plate": "NG-2003",
+    "status": "active",
+    "gps": {
+      "lat": 6.2,
+      "lng": 80.1
+    }
+  },
+  {
+    "id": 204,
+    "routeId": 2,
+    "plate": "NG-2004",
+    "status": "maintenance",
+    "gps": null
+  },
+  {
+    "id": 205,
+    "routeId": 2,
+    "plate": "NG-2005",
+    "status": "active",
+    "gps": {
+      "lat": 6,
+      "lng": 80.3
+    }
+  },
+  {
+    "id": 301,
+    "routeId": 3,
+    "plate": "NJ-3001",
+    "status": "active",
+    "gps": {
+      "lat": 8,
+      "lng": 80.5
+    }
+  },
+  {
+    "id": 302,
+    "routeId": 3,
+    "plate": "NJ-3002",
+    "status": "inactive",
+    "gps": null
+  },
+  {
+    "id": 303,
+    "routeId": 3,
+    "plate": "NJ-3003",
+    "status": "active",
+    "gps": {
+      "lat": 8.5,
+      "lng": 80.7
+    }
+  },
+  {
+    "id": 304,
+    "routeId": 3,
+    "plate": "NJ-3004",
+    "status": "maintenance",
+    "gps": null
+  },
+  {
+    "id": 305,
+    "routeId": 3,
+    "plate": "NJ-3005",
+    "status": "active",
+    "gps": {
+      "lat": 8.3,
+      "lng": 80.6
+    }
+  },
+  {
+    "id": 401,
+    "routeId": 4,
+    "plate": "NA-4001",
+    "status": "active",
+    "gps": {
+      "lat": 8.3122,
+      "lng": 80.4131
+    }
+  },
+  {
+    "id": 402,
+    "routeId": 4,
+    "plate": "NA-4002",
+    "status": "inactive",
+    "gps": null
+  },
+  {
+    "id": 403,
+    "routeId": 4,
+    "plate": "NA-4003",
+    "status": "active",
+    "gps": {
+      "lat": 8.4,
+      "lng": 80.5
+    }
+  },
+  {
+    "id": 404,
+    "routeId": 4,
+    "plate": "NA-4004",
+    "status": "maintenance",
+    "gps": null
+  },
+  {
+    "id": 405,
+    "routeId": 4,
+    "plate": "NA-4005",
+    "status": "active",
+    "gps": {
+      "lat": 8.2,
+      "lng": 80.2
+    }
+  },
+  {
+    "id": 501,
+    "routeId": 5,
+    "plate": "NB-5001",
+    "status": "active",
+    "gps": {
+      "lat": 6.9896,
+      "lng": 81.055
+    }
+  },
+  {
+    "id": 502,
+    "routeId": 5,
+    "plate": "NB-5002",
+    "status": "inactive",
+    "gps": null
+  },
+  {
+    "id": 503,
+    "routeId": 5,
+    "plate": "NB-5003",
+    "status": "active",
+    "gps": {
+      "lat": 6.8,
+      "lng": 81
+    }
+  },
+  {
+    "id": 504,
+    "routeId": 5,
+    "plate": "NB-5004",
+    "status": "maintenance",
+    "gps": null
+  },
+  {
+    "id": 505,
+    "routeId": 5,
+    "plate": "NB-5005",
+    "status": "active",
+    "gps": {
+      "lat": 7,
+      "lng": 81.1
+    }
+  }
+]
