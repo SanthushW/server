@@ -38,3 +38,5 @@
 {"time":"2025-08-26T10:27:00.845Z","method":"POST","path":"/auth/login","status":401,"user":null,"ip":"::1","durationMs":6}
 {"time":"2025-08-26T10:27:19.056Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":120}
 {"time":"2025-08-26T10:28:40.238Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":173}
+{"time":"2025-08-31T12:37:49.416Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":216}
+{"time":"2025-08-31T12:38:10.756Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":144}
