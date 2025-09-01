@@ -40,3 +40,8 @@
 {"time":"2025-08-26T10:28:40.238Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":173}
 {"time":"2025-08-31T12:37:49.416Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":216}
 {"time":"2025-08-31T12:38:10.756Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":144}
+{"time":"2025-08-31T15:03:19.851Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":190}
+{"time":"2025-08-31T15:05:07.624Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":128}
+{"time":"2025-08-31T15:24:07.138Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":181}
+{"time":"2025-08-31T15:41:55.450Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":231}
+{"time":"2025-08-31T15:42:10.104Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":133}
