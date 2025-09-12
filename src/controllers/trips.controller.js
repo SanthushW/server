@@ -1,6 +1,8 @@
 import JsonStore from '../store/jsonStore.js';
 import TripModel from '../models/trip.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
+import fs from 'fs';
+import path from 'path';
 
 const store = new JsonStore();
 const tripModel = new TripModel(store);
@@ -13,13 +15,28 @@ export function listTrips(req, res) {
   const start = (p - 1) * l;
   const slice = all.slice(start, start + l);
   res.set('X-Total-Count', String(all.length));
-  return conditionalJson(req, res, slice);
+  // derive last-modified from data file mtime
+  let lastModified = null;
+  try {
+    const dataFile = path.join(store.basePath, 'trips.json');
+    const st = fs.statSync(dataFile);
+    lastModified = st.mtime;
+  } catch (e) {
+    // ignore
+  }
+  return conditionalJson(req, res, slice, lastModified);
 }
 
 export function getTrip(req, res) {
   const trip = tripModel.getById(req.params.id);
   if (!trip) return res.status(404).json({ message: 'Trip not found' });
-  return conditionalJson(req, res, trip);
+  let lastModified = null;
+  try {
+    const dataFile = path.join(store.basePath, 'trips.json');
+    const st = fs.statSync(dataFile);
+    lastModified = st.mtime;
+  } catch (e) {}
+  return conditionalJson(req, res, trip, lastModified);
 }
 
 export function createTrip(req, res) {

@@ -3,6 +3,8 @@ import BusModel from '../models/bus.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
 import { broadcastBusUpdate } from '../utils/sse.js';
 import { Joi, validateBody } from '../middleware/validate.js';
+import fs from 'fs';
+import path from 'path';
 
 const store = new JsonStore();
 const busModel = new BusModel(store);
@@ -15,13 +17,25 @@ export function listBuses(req, res) {
   const start = (p - 1) * l;
   const slice = all.slice(start, start + l);
   res.set('X-Total-Count', String(all.length));
-  return conditionalJson(req, res, slice);
+  let lastModified = null;
+  try {
+    const dataFile = path.join(store.basePath, 'buses.json');
+    const st = fs.statSync(dataFile);
+    lastModified = st.mtime;
+  } catch (e) {}
+  return conditionalJson(req, res, slice, lastModified);
 }
 
 export function getBus(req, res) {
   const bus = busModel.getById(req.params.id);
   if (!bus) return res.status(404).json({ message: 'Bus not found' });
-  return conditionalJson(req, res, bus);
+  let lastModified = null;
+  try {
+    const dataFile = path.join(store.basePath, 'buses.json');
+    const st = fs.statSync(dataFile);
+    lastModified = st.mtime;
+  } catch (e) {}
+  return conditionalJson(req, res, bus, lastModified);
 }
 
 export function createBus(req, res) {
@@ -57,7 +71,13 @@ export function deleteBus(req, res) {
 export function getBusLocations(req, res) {
   const id = String(req.params.id);
   const history = store.locations[id] || [];
-  return conditionalJson(req, res, history);
+  let lastModified = null;
+  try {
+    const dataFile = path.join(store.basePath, 'locations.json');
+    const st = fs.statSync(dataFile);
+    lastModified = st.mtime;
+  } catch (e) {}
+  return conditionalJson(req, res, history, lastModified);
 }
 
 

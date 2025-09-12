@@ -1,6 +1,8 @@
 import JsonStore from '../store/jsonStore.js';
 import RouteModel from '../models/route.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
+import fs from 'fs';
+import path from 'path';
 
 const store = new JsonStore();
 const routesModel = new RouteModel(store);
@@ -13,13 +15,25 @@ export function listRoutes(req, res) {
   const start = (p - 1) * l;
   const slice = all.slice(start, start + l);
   res.set('X-Total-Count', String(all.length));
-  return conditionalJson(req, res, slice);
+  let lastModified = null;
+  try {
+    const dataFile = path.join(store.basePath, 'routes.json');
+    const st = fs.statSync(dataFile);
+    lastModified = st.mtime;
+  } catch (e) {}
+  return conditionalJson(req, res, slice, lastModified);
 }
 
 export function getRoute(req, res) {
   const route = routesModel.getById(req.params.id);
   if (!route) return res.status(404).json({ message: 'Route not found' });
-  return conditionalJson(req, res, route);
+  let lastModified = null;
+  try {
+    const dataFile = path.join(store.basePath, 'routes.json');
+    const st = fs.statSync(dataFile);
+    lastModified = st.mtime;
+  } catch (e) {}
+  return conditionalJson(req, res, route, lastModified);
 }
 
 export function createRoute(req, res) {
