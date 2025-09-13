@@ -55,3 +55,6 @@
 {"time":"2025-09-12T09:21:24.060Z","method":"POST","path":"/auth/register","status":201,"user":null,"ip":"::ffff:127.0.0.1","durationMs":151}
 {"time":"2025-09-12T09:21:24.194Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":118}
 {"time":"2025-09-12T09:21:24.282Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1757668883775","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":16}
+{"time":"2025-09-13T20:53:38.271Z","method":"POST","path":"/auth/register","status":201,"user":null,"ip":"::ffff:127.0.0.1","durationMs":179}
+{"time":"2025-09-13T20:53:38.431Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":136}
+{"time":"2025-09-13T20:53:38.518Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1757796817970","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":26}
