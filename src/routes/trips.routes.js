@@ -52,14 +52,14 @@ router.post('/', authenticate, requireRole('operator', 'admin'), validateBody(Jo
   routeId: Joi.number().integer().required(),
   startTime: Joi.string().isoDate().required(),
   endTime: Joi.string().isoDate().required(),
-  status: Joi.string().valid('scheduled', 'ongoing', 'completed', 'canceled').optional(),
+  status: Joi.string().valid('scheduled', 'in-progress', 'completed', 'cancelled').optional(),
 })), createTrip);
 router.put('/:id', authenticate, requireRole('operator', 'admin'), validateBody(Joi.object({
   busId: Joi.number().integer().optional(),
   routeId: Joi.number().integer().optional(),
   startTime: Joi.string().isoDate().optional(),
   endTime: Joi.string().isoDate().optional(),
-  status: Joi.string().valid('scheduled', 'ongoing', 'completed', 'canceled').optional(),
+  status: Joi.string().valid('scheduled', 'in-progress', 'completed', 'cancelled').optional(),
 })), updateTrip);
 router.delete('/:id', authenticate, requireRole('admin'), deleteTrip);
 

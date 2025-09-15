@@ -17,6 +17,8 @@ export function listBuses(req, res) {
   const start = (p - 1) * l;
   const slice = all.slice(start, start + l);
   res.set('X-Total-Count', String(all.length));
+  // Responses may vary by Authorization and Accept headers
+  res.set('Vary', 'Authorization, Accept');
   let lastModified = null;
   try {
     const dataFile = path.join(store.basePath, 'buses.json');
@@ -35,6 +37,7 @@ export function getBus(req, res) {
     const st = fs.statSync(dataFile);
     lastModified = st.mtime;
   } catch (e) {}
+  res.set('Vary', 'Authorization, Accept');
   return conditionalJson(req, res, bus, lastModified);
 }
 
@@ -77,6 +80,7 @@ export function getBusLocations(req, res) {
     const st = fs.statSync(dataFile);
     lastModified = st.mtime;
   } catch (e) {}
+  res.set('Vary', 'Authorization, Accept');
   return conditionalJson(req, res, history, lastModified);
 }
 

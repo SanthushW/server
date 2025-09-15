@@ -15,6 +15,8 @@ export function listRoutes(req, res) {
   const start = (p - 1) * l;
   const slice = all.slice(start, start + l);
   res.set('X-Total-Count', String(all.length));
+  // Responses may vary by Authorization and Accept headers
+  res.set('Vary', 'Authorization, Accept');
   let lastModified = null;
   try {
     const dataFile = path.join(store.basePath, 'routes.json');
@@ -33,6 +35,7 @@ export function getRoute(req, res) {
     const st = fs.statSync(dataFile);
     lastModified = st.mtime;
   } catch (e) {}
+  res.set('Vary', 'Authorization, Accept');
   return conditionalJson(req, res, route, lastModified);
 }
 
