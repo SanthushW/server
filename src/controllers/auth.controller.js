@@ -22,6 +22,7 @@ export async function register(req, res) {
     process.env.JWT_SECRET || 'dev_secret',
     { expiresIn: '2h' }
   );
+  res.set('Location', `/users/${username}`);
   return res.status(201).json({
     message: 'Registered successfully',
     token,

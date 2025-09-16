@@ -17,6 +17,16 @@ export function listRoutes(req, res) {
   res.set('X-Total-Count', String(all.length));
   // Responses may vary by Authorization and Accept headers
   res.set('Vary', 'Authorization, Accept');
+  // Add Link header when pagination is used
+  if (req.query.page || req.query.limit) {
+    const base = req.path;
+    const nextPage = p + 1;
+    const prevPage = Math.max(1, p - 1);
+    const links = [];
+    if (start + l < all.length) links.push(`<${base}?page=${nextPage}&limit=${l}>; rel="next"`);
+    if (p > 1) links.push(`<${base}?page=${prevPage}&limit=${l}>; rel="prev"`);
+    if (links.length) res.set('Link', links.join(', '));
+  }
   let lastModified = null;
   try {
     const dataFile = path.join(store.basePath, 'routes.json');
@@ -45,6 +55,7 @@ export function createRoute(req, res) {
     return res.status(400).json({ message: 'name, origin, destination are required' });
   }
   const route = routesModel.create({ name, origin, destination, distanceKm: Number(distanceKm) || 0 });
+  res.set('Location', `/routes/${route.id}`);
   return res.status(201).json(route);
 }
 

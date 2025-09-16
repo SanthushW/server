@@ -39,6 +39,10 @@ export function conditionalJson(req, res, payload, lastModified = null) {
   }
 
   res.set('ETag', etag);
+  // For HEAD requests, return headers without body
+  if (req.method === 'HEAD') {
+    return res.status(200).end();
+  }
   return res.json(payload);
 }
 

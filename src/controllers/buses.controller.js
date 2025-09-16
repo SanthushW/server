@@ -17,6 +17,16 @@ export function listBuses(req, res) {
   const start = (p - 1) * l;
   const slice = all.slice(start, start + l);
   res.set('X-Total-Count', String(all.length));
+  // Add simple Link header for pagination if page/limit provided
+  if (req.query.page || req.query.limit) {
+    const base = req.path;
+    const nextPage = p + 1;
+    const prevPage = Math.max(1, p - 1);
+    const links = [];
+    if (start + l < all.length) links.push(`<${base}?page=${nextPage}&limit=${l}>; rel="next"`);
+    if (p > 1) links.push(`<${base}?page=${prevPage}&limit=${l}>; rel="prev"`);
+    if (links.length) res.set('Link', links.join(', '));
+  }
   // Responses may vary by Authorization and Accept headers
   res.set('Vary', 'Authorization, Accept');
   let lastModified = null;
@@ -44,6 +54,7 @@ export function getBus(req, res) {
 export function createBus(req, res) {
   const { routeId, plate, status, gps } = req.body;
   const bus = busModel.create({ routeId: Number(routeId), plate, status: status || 'inactive', gps: gps || null });
+  res.set('Location', `/buses/${bus.id}`);
   return res.status(201).json(bus);
 }
 
