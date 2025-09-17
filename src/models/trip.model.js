@@ -27,7 +27,8 @@ export default class TripModel {
 
   create(data) {
     const id = this.store.nextId('trip');
-    const trip = { id, status: 'scheduled', ...data };
+    const now = new Date().toISOString();
+    const trip = { id, status: 'scheduled', ...data, updatedAt: now };
     this.store.trips.push(trip);
     this.store.persist();
     return trip;
@@ -36,7 +37,8 @@ export default class TripModel {
   update(id, data) {
     const idx = this.store.trips.findIndex(t => String(t.id) === String(id));
     if (idx === -1) return null;
-    this.store.trips[idx] = { ...this.store.trips[idx], ...data };
+    const now = new Date().toISOString();
+    this.store.trips[idx] = { ...this.store.trips[idx], ...data, updatedAt: now };
     this.store.persist();
     return this.store.trips[idx];
   }

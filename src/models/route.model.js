@@ -33,7 +33,8 @@ export default class RouteModel {
 
   create(data) {
     const id = this.store.nextId('route');
-    const route = { id, ...data };
+    const now = new Date().toISOString();
+    const route = { id, ...data, updatedAt: now };
     this.store.routes.push(route);
     this.store.persist();
     return route;
@@ -42,7 +43,8 @@ export default class RouteModel {
   update(id, data) {
     const idx = this.store.routes.findIndex(r => String(r.id) === String(id));
     if (idx === -1) return null;
-    this.store.routes[idx] = { ...this.store.routes[idx], ...data };
+    const now = new Date().toISOString();
+    this.store.routes[idx] = { ...this.store.routes[idx], ...data, updatedAt: now };
     this.store.persist();
     return this.store.routes[idx];
   }

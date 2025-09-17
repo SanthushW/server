@@ -28,11 +28,16 @@ export function listRoutes(req, res) {
     if (links.length) res.set('Link', links.join(', '));
   }
   let lastModified = null;
-  try {
-    const dataFile = path.join(store.basePath, 'routes.json');
-    const st = fs.statSync(dataFile);
-    lastModified = st.mtime;
-  } catch (e) {}
+  const timestamps = slice.map(s => s && s.updatedAt).filter(Boolean).map(d => new Date(d));
+  if (timestamps.length) {
+    lastModified = new Date(Math.max(...timestamps.map(d => d.getTime())));
+  } else {
+    try {
+      const dataFile = path.join(store.basePath, 'routes.json');
+      const st = fs.statSync(dataFile);
+      lastModified = st.mtime;
+    } catch (e) {}
+  }
   return conditionalJson(req, res, slice, lastModified);
 }
 
@@ -40,11 +45,14 @@ export function getRoute(req, res) {
   const route = routesModel.getById(req.params.id);
   if (!route) return res.status(404).json({ message: 'Route not found' });
   let lastModified = null;
-  try {
-    const dataFile = path.join(store.basePath, 'routes.json');
-    const st = fs.statSync(dataFile);
-    lastModified = st.mtime;
-  } catch (e) {}
+  if (route && route.updatedAt) lastModified = new Date(route.updatedAt);
+  else {
+    try {
+      const dataFile = path.join(store.basePath, 'routes.json');
+      const st = fs.statSync(dataFile);
+      lastModified = st.mtime;
+    } catch (e) {}
+  }
   res.set('Vary', 'Authorization, Accept');
   return conditionalJson(req, res, route, lastModified);
 }

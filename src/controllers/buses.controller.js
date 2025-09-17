@@ -30,11 +30,16 @@ export function listBuses(req, res) {
   // Responses may vary by Authorization and Accept headers
   res.set('Vary', 'Authorization, Accept');
   let lastModified = null;
-  try {
-    const dataFile = path.join(store.basePath, 'buses.json');
-    const st = fs.statSync(dataFile);
-    lastModified = st.mtime;
-  } catch (e) {}
+  const timestamps = slice.map(s => s && s.updatedAt).filter(Boolean).map(d => new Date(d));
+  if (timestamps.length) {
+    lastModified = new Date(Math.max(...timestamps.map(d => d.getTime())));
+  } else {
+    try {
+      const dataFile = path.join(store.basePath, 'buses.json');
+      const st = fs.statSync(dataFile);
+      lastModified = st.mtime;
+    } catch (e) {}
+  }
   return conditionalJson(req, res, slice, lastModified);
 }
 
@@ -42,11 +47,14 @@ export function getBus(req, res) {
   const bus = busModel.getById(req.params.id);
   if (!bus) return res.status(404).json({ message: 'Bus not found' });
   let lastModified = null;
-  try {
-    const dataFile = path.join(store.basePath, 'buses.json');
-    const st = fs.statSync(dataFile);
-    lastModified = st.mtime;
-  } catch (e) {}
+  if (bus && bus.updatedAt) lastModified = new Date(bus.updatedAt);
+  else {
+    try {
+      const dataFile = path.join(store.basePath, 'buses.json');
+      const st = fs.statSync(dataFile);
+      lastModified = st.mtime;
+    } catch (e) {}
+  }
   res.set('Vary', 'Authorization, Accept');
   return conditionalJson(req, res, bus, lastModified);
 }
@@ -86,6 +94,7 @@ export function getBusLocations(req, res) {
   const id = String(req.params.id);
   const history = store.locations[id] || [];
   let lastModified = null;
+  // history is stored in store.locations and doesn't carry per-item updatedAt; fall back to file mtime
   try {
     const dataFile = path.join(store.basePath, 'locations.json');
     const st = fs.statSync(dataFile);

@@ -27,14 +27,19 @@ export function listTrips(req, res) {
     if (p > 1) links.push(`<${base}?page=${prevPage}&limit=${l}>; rel="prev"`);
     if (links.length) res.set('Link', links.join(', '));
   }
-  // derive last-modified from data file mtime
+  // prefer per-resource updatedAt timestamps when present (use latest), otherwise fallback to file mtime
   let lastModified = null;
-  try {
-    const dataFile = path.join(store.basePath, 'trips.json');
-    const st = fs.statSync(dataFile);
-    lastModified = st.mtime;
-  } catch (e) {
-    // ignore
+  const timestamps = slice.map(s => s && s.updatedAt).filter(Boolean).map(d => new Date(d));
+  if (timestamps.length) {
+    lastModified = new Date(Math.max(...timestamps.map(d => d.getTime())));
+  } else {
+    try {
+      const dataFile = path.join(store.basePath, 'trips.json');
+      const st = fs.statSync(dataFile);
+      lastModified = st.mtime;
+    } catch (e) {
+      // ignore
+    }
   }
   return conditionalJson(req, res, slice, lastModified);
 }
@@ -43,11 +48,14 @@ export function getTrip(req, res) {
   const trip = tripModel.getById(req.params.id);
   if (!trip) return res.status(404).json({ message: 'Trip not found' });
   let lastModified = null;
-  try {
-    const dataFile = path.join(store.basePath, 'trips.json');
-    const st = fs.statSync(dataFile);
-    lastModified = st.mtime;
-  } catch (e) {}
+  if (trip && trip.updatedAt) lastModified = new Date(trip.updatedAt);
+  else {
+    try {
+      const dataFile = path.join(store.basePath, 'trips.json');
+      const st = fs.statSync(dataFile);
+      lastModified = st.mtime;
+    } catch (e) {}
+  }
   res.set('Vary', 'Authorization, Accept');
   return conditionalJson(req, res, trip, lastModified);
 }

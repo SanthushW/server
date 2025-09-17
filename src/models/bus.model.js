@@ -31,7 +31,8 @@ export default class BusModel {
 
   create(data) {
     const id = this.store.nextId('bus');
-    const bus = { id, gps: null, status: 'inactive', ...data };
+    const now = new Date().toISOString();
+    const bus = { id, gps: null, status: 'inactive', ...data, updatedAt: now };
     this.store.buses.push(bus);
     this.store.persist();
     return bus;
@@ -40,7 +41,8 @@ export default class BusModel {
   update(id, data) {
     const idx = this.store.buses.findIndex(b => String(b.id) === String(id));
     if (idx === -1) return null;
-    this.store.buses[idx] = { ...this.store.buses[idx], ...data };
+    const now = new Date().toISOString();
+    this.store.buses[idx] = { ...this.store.buses[idx], ...data, updatedAt: now };
     this.store.persist();
     return this.store.buses[idx];
   }
