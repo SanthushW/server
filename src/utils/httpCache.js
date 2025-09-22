@@ -1,5 +1,6 @@
 import crypto from 'crypto';
-import { parse as parseDate } from 'date-fns';
+// parseDate intentionally unused in current implementation but may be useful later
+// keep import removed to satisfy linter
 
 export function computeEtag(payload) {
   const body = typeof payload === 'string' ? payload : JSON.stringify(payload);

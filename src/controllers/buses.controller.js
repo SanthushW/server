@@ -2,7 +2,7 @@ import JsonStore from '../store/jsonStore.js';
 import BusModel from '../models/bus.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
 import { broadcastBusUpdate } from '../utils/sse.js';
-import { Joi, validateBody } from '../middleware/validate.js';
+// validate not used in this controller; keep imports local to routes where needed
 import fs from 'fs';
 import path from 'path';
 
@@ -38,7 +38,10 @@ export function listBuses(req, res) {
       const dataFile = path.join(store.basePath, 'buses.json');
       const st = fs.statSync(dataFile);
       lastModified = st.mtime;
-    } catch (e) {}
+    } catch (e) {
+      // fallback to no lastModified when file not available
+      // console.debug could be enabled in verbose mode
+    }
   }
   return conditionalJson(req, res, slice, lastModified);
 }
@@ -53,7 +56,9 @@ export function getBus(req, res) {
       const dataFile = path.join(store.basePath, 'buses.json');
       const st = fs.statSync(dataFile);
       lastModified = st.mtime;
-    } catch (e) {}
+    } catch (e) {
+      // ignore — no reliable mtime available
+    }
   }
   res.set('Vary', 'Authorization, Accept');
   return conditionalJson(req, res, bus, lastModified);
@@ -99,7 +104,9 @@ export function getBusLocations(req, res) {
     const dataFile = path.join(store.basePath, 'locations.json');
     const st = fs.statSync(dataFile);
     lastModified = st.mtime;
-  } catch (e) {}
+  } catch (e) {
+    // ignore when locations file missing
+  }
   res.set('Vary', 'Authorization, Accept');
   return conditionalJson(req, res, history, lastModified);
 }

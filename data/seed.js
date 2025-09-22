@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 
 const base = path.resolve('./data');
-const routes = JSON.parse(fs.readFileSync(path.join(base, 'routes.json')));
 const buses = JSON.parse(fs.readFileSync(path.join(base, 'buses.json')));
 
 function generateWeekTrips() {

@@ -36,7 +36,9 @@ export function listRoutes(req, res) {
       const dataFile = path.join(store.basePath, 'routes.json');
       const st = fs.statSync(dataFile);
       lastModified = st.mtime;
-    } catch (e) {}
+    } catch (e) {
+      // ignore when file missing
+    }
   }
   return conditionalJson(req, res, slice, lastModified);
 }
@@ -51,7 +53,9 @@ export function getRoute(req, res) {
       const dataFile = path.join(store.basePath, 'routes.json');
       const st = fs.statSync(dataFile);
       lastModified = st.mtime;
-    } catch (e) {}
+    } catch (e) {
+      // ignore
+    }
   }
   res.set('Vary', 'Authorization, Accept');
   return conditionalJson(req, res, route, lastModified);

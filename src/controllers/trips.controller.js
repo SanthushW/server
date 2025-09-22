@@ -38,7 +38,8 @@ export function listTrips(req, res) {
       const st = fs.statSync(dataFile);
       lastModified = st.mtime;
     } catch (e) {
-      // ignore
+      // ignore when trips file is not present
+      // intentionally left blank
     }
   }
   return conditionalJson(req, res, slice, lastModified);
@@ -54,7 +55,9 @@ export function getTrip(req, res) {
       const dataFile = path.join(store.basePath, 'trips.json');
       const st = fs.statSync(dataFile);
       lastModified = st.mtime;
-    } catch (e) {}
+    } catch (e) {
+      // ignore when trips file is not available on disk
+    }
   }
   res.set('Vary', 'Authorization, Accept');
   return conditionalJson(req, res, trip, lastModified);

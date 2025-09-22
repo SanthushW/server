@@ -8,8 +8,8 @@ export function addSseClient(res) {
     'Cache-Control': 'no-cache',
     Connection: 'keep-alive',
   });
-  res.write(`event: ready\n`);
-  res.write(`data: {"status":"ok"}\n\n`);
+  res.write('event: ready\n');
+  res.write('data: {"status":"ok"}\n\n');
   clients.add(res);
   res.on('close', () => {
     clients.delete(res);
