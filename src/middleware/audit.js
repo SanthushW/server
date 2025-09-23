@@ -22,11 +22,21 @@ export function auditWrites(req, res, next) {
       ip: req.ip,
       durationMs: Date.now() - start,
     };
+    // ensure directory exists
     try {
-      fs.appendFileSync(auditPath, JSON.stringify(entry) + '\n');
-    } catch {
-      // ignore
+      if (!fs.existsSync(base)) fs.mkdirSync(base, { recursive: true });
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error('Audit directory create failed', e && e.message);
+      return;
     }
+    fs.appendFile(auditPath, JSON.stringify(entry) + '\n', (err) => {
+      if (err) {
+        // log and continue; don't throw
+        // eslint-disable-next-line no-console
+        console.error('Failed to write audit log', err && err.message);
+      }
+    });
   });
   return next();
 }

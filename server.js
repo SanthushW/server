@@ -28,6 +28,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(auditWrites);
 
+// Security: ensure a non-default JWT secret is provided in non-test environments
+const jwtSecret = process.env.JWT_SECRET;
+if (process.env.NODE_ENV !== 'test') {
+  if (!jwtSecret || jwtSecret === 'dev_secret' || jwtSecret.trim().length < 16) {
+    // eslint-disable-next-line no-console
+    console.error('FATAL: JWT_SECRET is not set to a strong value. Set JWT_SECRET in environment (min 16 chars).');
+    // fail-fast to avoid running with weak secrets in production
+    process.exit(1);
+  }
+}
+
 app.use('/auth', authRoutes);
 app.use('/routes', routeRoutes);
 app.use('/buses', busRoutes);
