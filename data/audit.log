@@ -82,3 +82,6 @@
 {"time":"2025-09-23T21:41:14.553Z","method":"POST","path":"/auth/register","status":201,"user":null,"ip":"::ffff:127.0.0.1","durationMs":186}
 {"time":"2025-09-23T21:41:14.714Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":147}
 {"time":"2025-09-23T21:41:14.820Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1758663674312","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":23}
+{"time":"2025-09-25T15:58:59.338Z","method":"POST","path":"/auth/register","status":201,"user":null,"ip":"::ffff:127.0.0.1","durationMs":326}
+{"time":"2025-09-25T15:58:59.624Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":273}
+{"time":"2025-09-25T15:58:59.972Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1758815938745","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":24}
