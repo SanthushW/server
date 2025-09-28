@@ -5,7 +5,7 @@ import JsonStore from '../store/jsonStore.js';
 const store = new JsonStore();
 
 export async function register(req, res) {
-  const { username, password, role } = req.body;
+  const { username, password } = req.body;
   if (!username || !password) {
     return res.status(400).json({ message: 'username and password are required' });
   }
@@ -14,7 +14,10 @@ export async function register(req, res) {
     return res.status(400).json({ message: 'User already exists' });
   }
   const hashed = await bcrypt.hash(password, 10);
-  const user = { username, password: hashed, role: role || 'operator' };
+  // Always assign 'viewer' for public registrations to prevent clients from
+  // elevating their own privileges. Admin/operator accounts must be created
+  // by an existing admin or through an internal process.
+  const user = { username, password: hashed, role: 'viewer' };
   store.users.push(user);
   store.persist();
   const token = jwt.sign(
@@ -59,6 +62,22 @@ export async function me(req, res) {
   // Set a varying ETag so clients don't get 304 with empty body
   res.set('ETag', `${user.username}-${Date.now()}`);
   return res.status(200).json({ user: { id: user.username, username: user.username, role: user.role } });
+}
+
+export async function createUserByAdmin(req, res) {
+  // authenticated + requireRole('admin') should be applied at the route level
+  const { username, password, role } = req.body;
+  if (!username || !password || !role) {
+    return res.status(400).json({ message: 'username, password and role are required' });
+  }
+  const exists = store.users.find(u => u.username === username);
+  if (exists) return res.status(400).json({ message: 'User already exists' });
+  const hashed = await bcrypt.hash(password, 10);
+  const user = { username, password: hashed, role };
+  store.users.push(user);
+  store.persist();
+  res.set('Location', `/users/${username}`);
+  return res.status(201).json({ message: 'User created', user: { id: username, username, role } });
 }
 
 

@@ -1,12 +1,20 @@
 import request from 'supertest';
+import jwt from 'jsonwebtoken';
 import app from '../server.js';
 
 let token;
 const username = `op_${Date.now()}`;
+const secret = process.env.JWT_SECRET || 'dev_secret';
 
 describe('Auth', () => {
-  test('register and login', async () => {
-    await request(app).post('/auth/register').send({ username, password: 'pass1234', role: 'operator' }).expect(201);
+  test('admin creates operator and login', async () => {
+    // create operator via admin-only endpoint
+    const adminToken = jwt.sign({ id: 'Admin', role: 'admin' }, secret, { expiresIn: '1h' });
+    await request(app)
+      .post('/auth/users')
+      .set('Authorization', `Bearer ${adminToken}`)
+      .send({ username, password: 'pass1234', role: 'operator' })
+      .expect(201);
     const res = await request(app).post('/auth/login').send({ username, password: 'pass1234' }).expect(200);
     expect(res.body.token).toBeDefined();
     token = res.body.token;

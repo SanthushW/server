@@ -23,5 +23,25 @@
     "username": "user",
     "password": "$2a$10$R9C75TUkr5wunroSGCuDo.IVFf9yCHGTea7TtbJQbDP5QeFw3mMk2",
     "role": "viewer"
+  },
+  {
+    "username": "attacker3",
+    "password": "$2a$10$C7HzKn/UJssXvCTKhvNFj.x50.OrtYHcFZnvrd9p/979JmR8tbDji",
+    "role": "viewer"
+  },
+  {
+    "username": "newop2",
+    "password": "$2a$10$HE/Pc/QCG7ziD2EJwqZ9mOP5nGB0kRpyZNWnleWRPTeIMGNGNtKK.",
+    "role": "operator"
+  },
+  {
+    "username": "op_test_1759062597512",
+    "password": "$2a$10$r9eCDuaWO6mAy4L.f0TxneHS7bI1OgXPdMCueJfDLCabUrIrN3ZQa",
+    "role": "operator"
+  },
+  {
+    "username": "op_test_1759062638354",
+    "password": "$2a$10$S3a83YBfNF3q5QTdMqy78OdlMGZ2WVkpLbtIhEIvodf2BZ1XPCMnu",
+    "role": "operator"
   }
 ]
