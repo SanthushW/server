@@ -1,6 +1,7 @@
 import JsonStore from '../store/jsonStore.js';
 import TripModel from '../models/trip.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
+import { shapePayload } from '../utils/responseShape.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -42,7 +43,8 @@ export function listTrips(req, res) {
       // intentionally left blank
     }
   }
-  return conditionalJson(req, res, slice, lastModified);
+  const shaped = shapePayload(slice, req);
+  return conditionalJson(req, res, shaped, lastModified);
 }
 
 export function getTrip(req, res) {
@@ -60,7 +62,8 @@ export function getTrip(req, res) {
     }
   }
   res.set('Vary', 'Authorization, Accept');
-  return conditionalJson(req, res, trip, lastModified);
+  const shaped = shapePayload(trip, req);
+  return conditionalJson(req, res, shaped, lastModified);
 }
 
 export function createTrip(req, res) {
@@ -77,7 +80,9 @@ export function createTrip(req, res) {
 export function updateTrip(req, res) {
   const updated = tripModel.update(req.params.id, req.body);
   if (!updated) return res.status(404).json({ message: 'Trip not found' });
-  return res.json(updated);
+  res.set('Vary', 'Authorization, Accept');
+  const shaped = shapePayload(updated, req);
+  return res.json(shaped);
 }
 
 export function deleteTrip(req, res) {

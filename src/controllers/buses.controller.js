@@ -5,6 +5,7 @@ import { broadcastBusUpdate } from '../utils/sse.js';
 // validate not used in this controller; keep imports local to routes where needed
 import fs from 'fs';
 import path from 'path';
+import { shapePayload } from '../utils/responseShape.js';
 
 const store = new JsonStore();
 const busModel = new BusModel(store);
@@ -43,7 +44,8 @@ export function listBuses(req, res) {
       // console.debug could be enabled in verbose mode
     }
   }
-  return conditionalJson(req, res, slice, lastModified);
+  const shaped = shapePayload(slice, req);
+  return conditionalJson(req, res, shaped, lastModified);
 }
 
 export function getBus(req, res) {
@@ -61,7 +63,8 @@ export function getBus(req, res) {
     }
   }
   res.set('Vary', 'Authorization, Accept');
-  return conditionalJson(req, res, bus, lastModified);
+  const shaped = shapePayload(bus, req);
+  return conditionalJson(req, res, shaped, lastModified);
 }
 
 export function createBus(req, res) {
@@ -86,7 +89,9 @@ export function updateBus(req, res) {
     store.persist();
     broadcastBusUpdate(updated);
   }
-  return res.json(updated);
+  res.set('Vary', 'Authorization, Accept');
+  const shaped = shapePayload(updated, req);
+  return res.json(shaped);
 }
 
 export function deleteBus(req, res) {
@@ -108,7 +113,9 @@ export function getBusLocations(req, res) {
     // ignore when locations file missing
   }
   res.set('Vary', 'Authorization, Accept');
-  return conditionalJson(req, res, history, lastModified);
+  // locations are sensitive: operators and admins see full history; passengers get compact points
+  const shaped = shapePayload(history, req);
+  return conditionalJson(req, res, shaped, lastModified);
 }
 
 

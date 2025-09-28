@@ -85,3 +85,12 @@
 {"time":"2025-09-25T15:58:59.338Z","method":"POST","path":"/auth/register","status":201,"user":null,"ip":"::ffff:127.0.0.1","durationMs":326}
 {"time":"2025-09-25T15:58:59.624Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":273}
 {"time":"2025-09-25T15:58:59.972Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1758815938745","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":24}
+{"time":"2025-09-28T08:43:33.192Z","method":"POST","path":"/auth/register","status":201,"user":null,"ip":"::ffff:127.0.0.1","durationMs":164}
+{"time":"2025-09-28T08:43:33.325Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":116}
+{"time":"2025-09-28T08:43:33.409Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1759049012917","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":24}
+{"time":"2025-09-28T08:44:53.081Z","method":"POST","path":"/auth/register","status":201,"user":null,"ip":"::ffff:127.0.0.1","durationMs":154}
+{"time":"2025-09-28T08:44:53.207Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":113}
+{"time":"2025-09-28T08:44:53.292Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1759049092856","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":24}
+{"time":"2025-09-28T08:45:27.481Z","method":"POST","path":"/auth/register","status":201,"user":null,"ip":"::ffff:127.0.0.1","durationMs":130}
+{"time":"2025-09-28T08:45:27.627Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":128}
+{"time":"2025-09-28T08:45:27.710Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1759049127310","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":28}

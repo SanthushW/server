@@ -1,4 +1,5 @@
 import JsonStore from '../store/jsonStore.js';
+import { shapePayload } from '../utils/responseShape.js';
 
 const store = new JsonStore();
 
@@ -14,7 +15,7 @@ export function overview(req, res) {
   for (const [busId, points] of Object.entries(store.locations)) {
     if (points.length > 0) latestPositions[busId] = points[points.length - 1];
   }
-  return res.json({
+  const payload = {
     counts: {
       routes: store.routes.length,
       buses: store.buses.length,
@@ -23,7 +24,8 @@ export function overview(req, res) {
     },
     busesByRoute: byRoute,
     latestPositions,
-  });
+  };
+  return res.json(shapePayload(payload, req));
 }
 
 export function routeDetail(req, res) {
@@ -39,7 +41,8 @@ export function routeDetail(req, res) {
     gps: b.gps || null,
     lastSeen: (store.locations[String(b.id)] || []).slice(-1)[0] || null,
   }));
-  return res.json({ route, busCounts: { total: buses.length, active: buses.filter(b => b.status === 'active').length }, tripCount: trips.length, buses: busesWithLast });
+  const payload = { route, busCounts: { total: buses.length, active: buses.filter(b => b.status === 'active').length }, tripCount: trips.length, buses: busesWithLast };
+  return res.json(shapePayload(payload, req));
 }
 
 
