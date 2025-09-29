@@ -68,5 +68,10 @@
     "username": "op_test_1759130939662",
     "password": "$2a$10$E/vzImWkza0LqiuOP5itLemA3YvdlRTBM.JOaMfWbdFt.rwNC/wK2",
     "role": "operator"
+  },
+  {
+    "username": "op_test_1759148229985",
+    "password": "$2a$10$8gkRMhV3rkspB0lS4/LdoOCP8WGFwDT.0SpXXdlOW8zzRF9mdAqM6",
+    "role": "operator"
   }
 ]

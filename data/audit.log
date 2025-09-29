@@ -156,3 +156,17 @@
 {"time":"2025-09-29T07:29:02.587Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":202}
 {"time":"2025-09-29T07:29:03.003Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":400}
 {"time":"2025-09-29T07:29:03.761Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1759130942331","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":33}
+{"time":"2025-09-29T12:17:03.197Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":153}
+{"time":"2025-09-29T12:17:03.621Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":393}
+{"time":"2025-09-29T12:17:04.041Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1759148222903","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":17}
+{"time":"2025-09-29T12:17:10.273Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":244}
+{"time":"2025-09-29T12:17:10.539Z","method":"POST","path":"/auth/users","status":403,"user":{"id":"someUser","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":4}
+{"time":"2025-09-29T12:17:10.591Z","method":"POST","path":"/auth/users","status":400,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":19}
+{"time":"2025-09-29T12:39:37.159Z","method":"PUT","path":"/buses/101","status":401,"user":null,"ip":"::1","durationMs":5}
+{"time":"2025-09-29T12:42:48.417Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":253}
+{"time":"2025-09-29T12:44:24.668Z","method":"PUT","path":"/buses/101","status":401,"user":null,"ip":"::1","durationMs":2}
+{"time":"2025-09-29T12:49:23.027Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::1","durationMs":97}
+{"time":"2025-09-29T12:51:11.547Z","method":"PUT","path":"/buses/101","status":401,"user":null,"ip":"::1","durationMs":2}
+{"time":"2025-09-29T12:52:38.713Z","method":"POST","path":"/auth/login","status":401,"user":null,"ip":"::1","durationMs":3}
+{"time":"2025-09-29T12:53:47.048Z","method":"PUT","path":"/buses/101","status":200,"user":{"id":"Admin01","role":"admin"},"ip":"::1","durationMs":29}
+{"time":"2025-09-29T12:55:07.582Z","method":"PUT","path":"/buses/101","status":200,"user":{"id":"Admin01","role":"admin"},"ip":"::1","durationMs":27}

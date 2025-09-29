@@ -16,6 +16,12 @@ router.get('/sse', (req, res) => {
   addSseClient(res);
 });
 
+// Subscribe to SSE updates for a single bus id (server-side filtered)
+router.get('/sse/:id', (req, res) => {
+  const id = req.params.id;
+  addSseClient(res, { id });
+});
+
 export default router;
 
 

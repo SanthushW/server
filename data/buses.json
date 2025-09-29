@@ -5,10 +5,10 @@
     "plate": "ABC-456",
     "status": "maintenance",
     "gps": {
-      "lat": 6.9271,
-      "lng": 79.8612
+      "lat": 6.93,
+      "lng": 79.86
     },
-    "updatedAt": "2025-09-28T14:37:26.025Z"
+    "updatedAt": "2025-09-29T12:55:07.564Z"
   },
   {
     "id": 102,
