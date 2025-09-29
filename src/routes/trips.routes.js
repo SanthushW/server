@@ -47,6 +47,30 @@ router.get('/', apiLimiter, validateQuery(Joi.object({
  *         description: Not Found
  */
 router.get('/:id', apiLimiter, getTrip);
+/**
+ * @openapi
+ * /trips:
+ *   post:
+ *     summary: Create a new trip
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/TripCreate'
+ *           examples:
+ *             createTrip:
+ *               value:
+ *                 busId: 101
+ *                 routeId: 1
+ *                 startTime: "2025-10-01T06:00:00.000Z"
+ *                 endTime: "2025-10-01T09:00:00.000Z"
+ *     responses:
+ *       201:
+ *         description: Created
+ */
 router.post('/', authenticate, requireRole('operator', 'admin'), validateBody(Joi.object({
   busId: Joi.number().integer().required(),
   routeId: Joi.number().integer().required(),
@@ -54,6 +78,33 @@ router.post('/', authenticate, requireRole('operator', 'admin'), validateBody(Jo
   endTime: Joi.string().isoDate().required(),
   status: Joi.string().valid('scheduled', 'in-progress', 'completed', 'cancelled').optional(),
 })), createTrip);
+/**
+ * @openapi
+ * /trips/{id}:
+ *   put:
+ *     summary: Update a trip
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/TripCreate'
+ *           examples:
+ *             updateTrip:
+ *               value:
+ *                 status: completed
+ *     responses:
+ *       200:
+ *         description: OK
+ */
 router.put('/:id', authenticate, requireRole('operator', 'admin'), validateBody(Joi.object({
   busId: Joi.number().integer().optional(),
   routeId: Joi.number().integer().optional(),
@@ -61,6 +112,23 @@ router.put('/:id', authenticate, requireRole('operator', 'admin'), validateBody(
   endTime: Joi.string().isoDate().optional(),
   status: Joi.string().valid('scheduled', 'in-progress', 'completed', 'cancelled').optional(),
 })), updateTrip);
+/**
+ * @openapi
+ * /trips/{id}:
+ *   delete:
+ *     summary: Delete a trip
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       204:
+ *         description: No Content
+ */
 router.delete('/:id', authenticate, requireRole('admin'), deleteTrip);
 
 export default router;

@@ -19,6 +19,85 @@ const options = {
           bearerFormat: 'JWT',
         },
       },
+      schemas: {
+        User: {
+          type: 'object',
+          properties: {
+            username: { type: 'string' },
+            role: { type: 'string', enum: ['admin', 'operator', 'viewer'] },
+          },
+        },
+        UserRegister: {
+          type: 'object',
+          properties: {
+            username: { type: 'string' },
+            password: { type: 'string' },
+          },
+          required: ['username', 'password'],
+        },
+        UserLogin: {
+          type: 'object',
+          properties: {
+            username: { type: 'string' },
+            password: { type: 'string' },
+          },
+          required: ['username', 'password'],
+        },
+        UserCreate: {
+          type: 'object',
+          properties: {
+            username: { type: 'string' },
+            password: { type: 'string' },
+            role: { type: 'string', enum: ['admin', 'operator', 'viewer'] },
+          },
+          required: ['username', 'password', 'role'],
+        },
+        Bus: {
+          type: 'object',
+          properties: {
+            id: { type: 'integer' },
+            routeId: { type: 'integer' },
+            plate: { type: 'string' },
+            status: { type: 'string', enum: ['active', 'inactive', 'maintenance'] },
+            gps: {
+              type: 'object',
+              properties: { lat: { type: 'number' }, lng: { type: 'number' } },
+            },
+          },
+        },
+        BusCreate: {
+          type: 'object',
+          properties: {
+            routeId: { type: 'integer' },
+            plate: { type: 'string' },
+            status: { type: 'string', enum: ['active', 'inactive', 'maintenance'] },
+            gps: { type: 'object', properties: { lat: { type: 'number' }, lng: { type: 'number' } } },
+          },
+          required: ['routeId', 'plate'],
+        },
+        Trip: {
+          type: 'object',
+          properties: {
+            id: { type: 'integer' },
+            busId: { type: 'integer' },
+            routeId: { type: 'integer' },
+            startTime: { type: 'string', format: 'date-time' },
+            endTime: { type: 'string', format: 'date-time' },
+            status: { type: 'string', enum: ['scheduled', 'in-progress', 'completed', 'cancelled'] },
+          },
+        },
+        TripCreate: {
+          type: 'object',
+          properties: {
+            busId: { type: 'integer' },
+            routeId: { type: 'integer' },
+            startTime: { type: 'string', format: 'date-time' },
+            endTime: { type: 'string', format: 'date-time' },
+            status: { type: 'string', enum: ['scheduled', 'in-progress', 'completed', 'cancelled'] },
+          },
+          required: ['busId', 'routeId', 'startTime', 'endTime'],
+        },
+      },
     },
     security: [{ bearerAuth: [] }],
   },

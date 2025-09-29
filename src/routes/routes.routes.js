@@ -54,18 +54,104 @@ router.get('/', apiLimiter, validateQuery(Joi.object({
  *         description: Not Found
  */
 router.get('/:id', apiLimiter, getRoute);
+/**
+ * @openapi
+ * /routes:
+ *   post:
+ *     summary: Create a route
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               origin:
+ *                 type: string
+ *               destination:
+ *                 type: string
+ *               distanceKm:
+ *                 type: number
+ *           examples:
+ *             createRoute:
+ *               value:
+ *                 name: Route 1
+ *                 origin: City A
+ *                 destination: City B
+ *                 distanceKm: 12.5
+ *     responses:
+ *       201:
+ *         description: Created
+ */
 router.post('/', authenticate, requireRole('admin'), validateBody(Joi.object({
   name: Joi.string().min(2).required(),
   origin: Joi.string().min(2).required(),
   destination: Joi.string().min(2).required(),
   distanceKm: Joi.number().min(0).optional(),
 })), createRoute);
+/**
+ * @openapi
+ * /routes/{id}:
+ *   put:
+ *     summary: Update a route
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               origin:
+ *                 type: string
+ *               destination:
+ *                 type: string
+ *               distanceKm:
+ *                 type: number
+ *           examples:
+ *             updateRoute:
+ *               value:
+ *                 name: Route 1 Updated
+ *     responses:
+ *       200:
+ *         description: OK
+ */
 router.put('/:id', authenticate, requireRole('admin'), validateBody(Joi.object({
   name: Joi.string().min(2).optional(),
   origin: Joi.string().min(2).optional(),
   destination: Joi.string().min(2).optional(),
   distanceKm: Joi.number().min(0).optional(),
 })), updateRoute);
+/**
+ * @openapi
+ * /routes/{id}:
+ *   delete:
+ *     summary: Delete a route
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       204:
+ *         description: No Content
+ */
 router.delete('/:id', authenticate, requireRole('admin'), deleteRoute);
 
 export default router;

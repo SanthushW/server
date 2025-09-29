@@ -2,12 +2,13 @@
   {
     "id": 101,
     "routeId": 1,
-    "plate": "NC-1001",
-    "status": "active",
+    "plate": "ABC-456",
+    "status": "maintenance",
     "gps": {
       "lat": 6.9271,
       "lng": 79.8612
-    }
+    },
+    "updatedAt": "2025-09-28T14:37:26.025Z"
   },
   {
     "id": 102,
