@@ -704,5 +704,41 @@
     "startTime": "2025-08-21T06:00:00.000Z",
     "endTime": "2025-08-21T09:00:00.000Z",
     "updatedAt": "2025-09-28T12:30:37.092Z"
+  },
+  {
+    "id": 5020,
+    "status": "scheduled",
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-21T06:00:00.000Z",
+    "endTime": "2025-08-21T09:00:00.000Z",
+    "updatedAt": "2025-09-29T01:16:30.828Z"
+  },
+  {
+    "id": 5021,
+    "status": "scheduled",
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-21T06:00:00.000Z",
+    "endTime": "2025-08-21T09:00:00.000Z",
+    "updatedAt": "2025-09-29T07:25:45.638Z"
+  },
+  {
+    "id": 5022,
+    "status": "scheduled",
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-21T06:00:00.000Z",
+    "endTime": "2025-08-21T09:00:00.000Z",
+    "updatedAt": "2025-09-29T07:28:10.501Z"
+  },
+  {
+    "id": 5023,
+    "status": "scheduled",
+    "busId": 101,
+    "routeId": 1,
+    "startTime": "2025-08-21T06:00:00.000Z",
+    "endTime": "2025-08-21T09:00:00.000Z",
+    "updatedAt": "2025-09-29T07:29:03.753Z"
   }
 ]

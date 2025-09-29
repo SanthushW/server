@@ -48,5 +48,25 @@
     "username": "Admin01",
     "password": "$2a$10$CDCR16ZrnolvaaaueREZC.BySuHNL/G6bdFEDUCTRZEp4b5VWWb2.",
     "role": "admin"
+  },
+  {
+    "username": "op_test_1759108594662",
+    "password": "$2a$10$pGLT9FPAxlrrB/XRmpyIf.csRfnTCkCoxTyIk4POAmqenYYFUFzZO",
+    "role": "operator"
+  },
+  {
+    "username": "op_test_1759130749034",
+    "password": "$2a$10$cspRUngagFnNaqVsrQozJeuv3RM6cNKHRcp.q1khGDMmKl7IDv3C.",
+    "role": "operator"
+  },
+  {
+    "username": "op_test_1759130893299",
+    "password": "$2a$10$D6yZ0TBf7Yp6ERG6tLm4GOa86h4Iehil9LP/3UvVz7v7dK3AjO4jG",
+    "role": "operator"
+  },
+  {
+    "username": "op_test_1759130939662",
+    "password": "$2a$10$E/vzImWkza0LqiuOP5itLemA3YvdlRTBM.JOaMfWbdFt.rwNC/wK2",
+    "role": "operator"
   }
 ]
