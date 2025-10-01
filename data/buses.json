@@ -5,19 +5,25 @@
     "plate": "ABC-456",
     "status": "active",
     "gps": {
-      "lat": 6.93,
-      "lng": 79.86,
-      "speed": 45,
+      "lat": 6.931185,
+      "lng": 79.861642,
+      "speed": 42,
       "heading": null
     },
-    "updatedAt": "2025-10-01T07:36:44.770Z"
+    "updatedAt": "2025-10-01T07:44:38.158Z"
   },
   {
     "id": 102,
     "routeId": 1,
     "plate": "NC-1002",
     "status": "inactive",
-    "gps": null
+    "gps": {
+      "lat": 6.927259,
+      "lng": 79.861896,
+      "speed": 65,
+      "heading": null
+    },
+    "updatedAt": "2025-10-01T07:44:38.169Z"
   },
   {
     "id": 103,
@@ -25,9 +31,12 @@
     "plate": "NC-1003",
     "status": "active",
     "gps": {
-      "lat": 7.2906,
-      "lng": 80.6337
-    }
+      "lat": 7.291181,
+      "lng": 80.634381,
+      "speed": 39,
+      "heading": null
+    },
+    "updatedAt": "2025-10-01T07:44:38.179Z"
   },
   {
     "id": 104,
