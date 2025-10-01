@@ -1,4 +1,4 @@
-import JsonStore, { store } from '../store/jsonStore.js';
+import { store } from '../store/jsonStore.js';
 import { shapePayload } from '../utils/responseShape.js';
 
 // use shared store instance

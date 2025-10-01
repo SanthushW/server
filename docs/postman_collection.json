@@ -1,0 +1,37 @@
+{
+  "info": {
+    "name": "Bus Tracking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:3000/auth/users", "host": ["http://localhost:3000"], "path": ["auth","users"] },
+        "body": { "mode": "raw", "raw": "{ \"username\": \"admin\", \"password\": \"secret\", \"role\": \"admin\" }" }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:3000/auth/login", "host": ["http://localhost:3000"], "path": ["auth","login"] },
+        "body": { "mode": "raw", "raw": "{ \"username\": \"admin\", \"password\": \"secret\" }" }
+      }
+    },
+    {
+      "name": "Get Buses (filter & headers)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{jwt}}" }
+        ],
+        "url": { "raw": "http://localhost:3000/buses?route=1&limit=10&sort=plate", "host": ["http://localhost:3000"], "path": ["buses"], "query": [{"key":"route","value":"1"},{"key":"limit","value":"10"},{"key":"sort","value":"plate"}] }
+      }
+    }
+  ]
+}

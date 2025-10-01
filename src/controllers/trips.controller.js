@@ -1,4 +1,4 @@
-import JsonStore, { store } from '../store/jsonStore.js';
+import { store } from '../store/jsonStore.js';
 import TripModel from '../models/trip.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
 import { shapePayload } from '../utils/responseShape.js';

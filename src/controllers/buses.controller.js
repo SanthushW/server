@@ -1,4 +1,4 @@
-import JsonStore, { store } from '../store/jsonStore.js';
+import { store } from '../store/jsonStore.js';
 import BusModel from '../models/bus.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
 import { broadcastBusUpdate } from '../utils/sse.js';

@@ -1,8 +1,37 @@
 import winston from 'winston';
 
+// Redact sensitive fields from log objects
+const redactSensitive = winston.format((info) => {
+  const redact = (obj) => {
+    if (!obj || typeof obj !== 'object') return obj;
+    const copy = Array.isArray(obj) ? [...obj] : { ...obj };
+    const fieldsToRedact = ['secret', 'password', 'token', 'accessToken', 'refreshToken'];
+    for (const key of Object.keys(copy)) {
+      try {
+        if (fieldsToRedact.includes(key)) {
+          copy[key] = '[REDACTED]';
+        } else if (typeof copy[key] === 'string' && /^(eyJ|[A-Za-z0-9-_]{20,}\.[A-Za-z0-9-_]{20,}\.[A-Za-z0-9-_]{20,})$/.test(copy[key])) {
+          // Likely a JWT-like string, redact
+          copy[key] = '[REDACTED_TOKEN]';
+        } else if (typeof copy[key] === 'object') {
+          copy[key] = redact(copy[key]);
+        }
+      } catch (e) {
+        // ignore and continue
+      }
+    }
+    return copy;
+  };
+
+  if (info.details) info.details = redact(info.details);
+  if (info.meta) info.meta = redact(info.meta);
+  return info;
+});
+
 const logger = winston.createLogger({
   level: process.env.LOG_LEVEL || 'info',
   format: winston.format.combine(
+    redactSensitive(),
     winston.format.timestamp(),
     winston.format.json()
   ),

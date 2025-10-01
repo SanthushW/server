@@ -1,5 +1,5 @@
 import { appendLocation } from '../store/locationStore.js';
-import JsonStore, { store } from '../store/jsonStore.js';
+import { store } from '../store/jsonStore.js';
 import { broadcastBusUpdate } from '../utils/sse.js';
 
 // use shared store instance
