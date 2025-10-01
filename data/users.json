@@ -78,5 +78,25 @@
     "username": "op_test_1759299421677",
     "password": "$2a$10$H0AZo.YvIOeIC7zhVl1BPO165DtvejBycHf70tBmFpOBoXiwj1MTK",
     "role": "operator"
+  },
+  {
+    "username": "op_1759302197844",
+    "password": "$2a$10$Tvi68d0bGHbvLx2hkx9OuuK3kla./5/2rc0EHvyx4A52D.YV25Qn.",
+    "role": "operator"
+  },
+  {
+    "username": "op_test_1759302201722",
+    "password": "$2a$10$3Gb5VjxYNI67.cfMRKc.XOudkgo00QzvCpLibpIE.TO4oryG/g4CO",
+    "role": "operator"
+  },
+  {
+    "username": "op_test_1759302342712",
+    "password": "$2a$10$VOURCICNvyOcBZ7oBbma0eINuYrvitU8jeBPbNYR78p0HzMDyAUGK",
+    "role": "operator"
+  },
+  {
+    "username": "op_test_1759303167480",
+    "password": "$2a$10$mbgkDNHpHBKJQc6HEYoR.OZQ3aLEBRJSIVPUbKiS/Dw.nCSx5xm1y",
+    "role": "operator"
   }
 ]
