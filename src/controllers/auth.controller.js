@@ -1,8 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import JsonStore from '../store/jsonStore.js';
-
-const store = new JsonStore();
+import JsonStore, { store } from '../store/jsonStore.js';
 
 export async function register(req, res) {
   const { username, password } = req.body;

@@ -1,11 +1,10 @@
-import JsonStore from '../store/jsonStore.js';
+import JsonStore, { store } from '../store/jsonStore.js';
 import TripModel from '../models/trip.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
 import { shapePayload } from '../utils/responseShape.js';
 import fs from 'fs';
 import path from 'path';
 
-const store = new JsonStore();
 const tripModel = new TripModel(store);
 
 export function listTrips(req, res) {

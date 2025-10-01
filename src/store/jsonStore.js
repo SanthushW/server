@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export default class JsonStore {
+class JsonStore {
   constructor(basePath = path.resolve(__dirname, '../../data')) {
     this.basePath = basePath;
     this.routes = this.readJson('routes.json');
@@ -45,5 +45,10 @@ export default class JsonStore {
     return this.meta[type];
   }
 }
+
+// export both the class and a shared singleton instance
+const store = new JsonStore();
+export default JsonStore;
+export { store };
 
 

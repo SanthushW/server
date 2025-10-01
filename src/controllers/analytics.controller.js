@@ -1,7 +1,7 @@
-import JsonStore from '../store/jsonStore.js';
+import JsonStore, { store } from '../store/jsonStore.js';
 import { shapePayload } from '../utils/responseShape.js';
 
-const store = new JsonStore();
+// use shared store instance
 
 export function overview(req, res) {
   const activeBuses = store.buses.filter(b => b.status === 'active').length;

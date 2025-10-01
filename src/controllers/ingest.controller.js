@@ -1,8 +1,8 @@
 import { appendLocation } from '../store/locationStore.js';
-import JsonStore from '../store/jsonStore.js';
+import JsonStore, { store } from '../store/jsonStore.js';
 import { broadcastBusUpdate } from '../utils/sse.js';
 
-const store = new JsonStore();
+// use shared store instance
 
 export function ingestGps(req, res) {
   const { busId, timestamp, lat, lng, speed, heading, battery } = req.body;

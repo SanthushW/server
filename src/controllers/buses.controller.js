@@ -1,4 +1,4 @@
-import JsonStore from '../store/jsonStore.js';
+import JsonStore, { store } from '../store/jsonStore.js';
 import BusModel from '../models/bus.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
 import { broadcastBusUpdate } from '../utils/sse.js';
@@ -8,7 +8,6 @@ import fs from 'fs';
 import path from 'path';
 import { shapePayload } from '../utils/responseShape.js';
 
-const store = new JsonStore();
 const busModel = new BusModel(store);
 
 export function listBuses(req, res) {
@@ -111,14 +110,7 @@ export function getBusLocations(req, res) {
   const id = String(req.params.id);
   const history = store.locations[id] || [];
   let lastModified = null;
-  // history is stored in store.locations and doesn't carry per-item updatedAt; fall back to file mtime
-  try {
-    const dataFile = path.join(store.basePath, 'locations.json');
-    const st = fs.statSync(dataFile);
-    lastModified = st.mtime;
-  } catch (e) {
-    // ignore when locations file missing
-  }
+
   res.set('Vary', 'Authorization, Accept');
   // locations are sensitive: operators and admins see full history; passengers get compact points
   const shaped = shapePayload(history, req);
