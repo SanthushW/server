@@ -16,6 +16,7 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerSpec from './src/swagger.js';
 import realtimeRoutes from './src/routes/realtime.routes.js';
 import analyticsRoutes from './src/routes/analytics.routes.js';
+import ingestRoutes from './src/routes/ingest.routes.js';
 import { auditWrites } from './src/middleware/audit.js';
 
 const app = express();
@@ -47,6 +48,7 @@ app.use('/health', healthRoutes);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/realtime', realtimeRoutes);
 app.use('/analytics', analyticsRoutes);
+app.use('/ingest', ingestRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);

@@ -206,3 +206,17 @@
 {"time":"2025-10-01T07:19:27.674Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":164}
 {"time":"2025-10-01T07:19:27.703Z","method":"POST","path":"/auth/users","status":403,"user":{"id":"someUser","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":2}
 {"time":"2025-10-01T07:19:27.720Z","method":"POST","path":"/auth/users","status":400,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":5}
+{"time":"2025-10-01T07:23:33.054Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":144}
+{"time":"2025-10-01T07:23:33.175Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":104}
+{"time":"2025-10-01T07:23:33.478Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1759303412826","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":23}
+{"time":"2025-10-01T07:23:34.888Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":264}
+{"time":"2025-10-01T07:23:34.923Z","method":"POST","path":"/auth/users","status":403,"user":{"id":"someUser","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":5}
+{"time":"2025-10-01T07:23:34.948Z","method":"POST","path":"/auth/users","status":400,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":9}
+{"time":"2025-10-01T07:30:28.119Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":166}
+{"time":"2025-10-01T07:30:28.241Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":105}
+{"time":"2025-10-01T07:30:28.373Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1759303827822","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":22}
+{"time":"2025-10-01T07:30:30.975Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":139}
+{"time":"2025-10-01T07:30:30.999Z","method":"POST","path":"/auth/users","status":403,"user":{"id":"someUser","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":4}
+{"time":"2025-10-01T07:30:31.021Z","method":"POST","path":"/auth/users","status":400,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":6}
+{"time":"2025-10-01T07:32:50.727Z","method":"POST","path":"/ingest/gps","status":202,"user":null,"ip":"::1","durationMs":32}
+{"time":"2025-10-01T07:36:44.785Z","method":"POST","path":"/ingest/gps","status":202,"user":null,"ip":"::1","durationMs":16}

@@ -98,5 +98,15 @@
     "username": "op_test_1759303167480",
     "password": "$2a$10$mbgkDNHpHBKJQc6HEYoR.OZQ3aLEBRJSIVPUbKiS/Dw.nCSx5xm1y",
     "role": "operator"
+  },
+  {
+    "username": "op_test_1759303414578",
+    "password": "$2a$10$ieCDe797P20vwvW9innV5u79OKuFVl3f4tOX5Jf7wFZYHy9Bmhyc2",
+    "role": "operator"
+  },
+  {
+    "username": "op_test_1759303830796",
+    "password": "$2a$10$mADZpHRYsTVgeAqepkp3He8t/uX0F4OVB./GBMXpSL5vagZbxF7zm",
+    "role": "operator"
   }
 ]

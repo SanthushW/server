@@ -1,0 +1,8 @@
+[
+  {
+    "deviceId": "device-101",
+    "secret": "dev_secret_device_101",
+    "description": "Demo device for bus 101",
+    "enabled": true
+  }
+]
