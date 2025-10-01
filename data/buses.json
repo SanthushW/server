@@ -3,7 +3,7 @@
     "id": 101,
     "routeId": 1,
     "plate": "ABC-456",
-    "status": "maintenance",
+    "status": "active",
     "gps": {
       "lat": 6.93,
       "lng": 79.86
