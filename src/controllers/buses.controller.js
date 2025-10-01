@@ -2,6 +2,7 @@ import JsonStore from '../store/jsonStore.js';
 import BusModel from '../models/bus.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
 import { broadcastBusUpdate } from '../utils/sse.js';
+import { appendLocation } from '../store/locationStore.js';
 // validate not used in this controller; keep imports local to routes where needed
 import fs from 'fs';
 import path from 'path';
@@ -41,7 +42,6 @@ export function listBuses(req, res) {
       lastModified = st.mtime;
     } catch (e) {
       // fallback to no lastModified when file not available
-      // console.debug could be enabled in verbose mode
     }
   }
   const shaped = shapePayload(slice, req);
@@ -81,7 +81,14 @@ export function updateBus(req, res) {
     const now = new Date().toISOString();
     const key = String(updated.id);
     if (!store.locations[key]) store.locations[key] = [];
-    store.locations[key].push({ ...updated.gps, time: now });
+    const point = { ...updated.gps, time: now, busId: key };
+    store.locations[key].push(point);
+    // also append to daily NDJSON persistence
+    try {
+      appendLocation(point);
+    } catch (e) {
+      // don't fail the update if NDJSON append fails; log is elsewhere
+    }
     // keep only latest 100 points per bus
     if (store.locations[key].length > 100) {
       store.locations[key] = store.locations[key].slice(-100);

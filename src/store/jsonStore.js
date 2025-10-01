@@ -12,7 +12,8 @@ export default class JsonStore {
     this.buses = this.readJson('buses.json');
     this.trips = this.readJson('trips.json');
     this.users = this.readJson('users.json');
-    this.locations = this.readJson('locations.json', {});
+    // locations are now persisted as daily NDJSON files; keep an in-memory cache
+    this.locations = {};
     this.metaPath = path.join(this.basePath, '_meta.json');
     this.meta = this.readJson('_meta.json', { route: 100, bus: 1000, trip: 5000 });
   }
@@ -35,7 +36,6 @@ export default class JsonStore {
     fs.writeFileSync(path.join(this.basePath, 'buses.json'), JSON.stringify(this.buses, null, 2));
     fs.writeFileSync(path.join(this.basePath, 'trips.json'), JSON.stringify(this.trips, null, 2));
     fs.writeFileSync(path.join(this.basePath, 'users.json'), JSON.stringify(this.users, null, 2));
-    fs.writeFileSync(path.join(this.basePath, 'locations.json'), JSON.stringify(this.locations, null, 2));
     fs.writeFileSync(this.metaPath, JSON.stringify(this.meta, null, 2));
   }
 

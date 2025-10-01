@@ -5,12 +5,12 @@
     "plate": "ABC-456",
     "status": "active",
     "gps": {
-      "lat": 6.931185,
-      "lng": 79.861642,
-      "speed": 42,
+      "lat": 6.93334,
+      "lng": 79.86276,
+      "speed": 69,
       "heading": null
     },
-    "updatedAt": "2025-10-01T07:44:38.158Z"
+    "updatedAt": "2025-10-01T08:05:18.036Z"
   },
   {
     "id": 102,
@@ -18,12 +18,12 @@
     "plate": "NC-1002",
     "status": "inactive",
     "gps": {
-      "lat": 6.927259,
-      "lng": 79.861896,
-      "speed": 65,
+      "lat": 6.926425,
+      "lng": 79.862825,
+      "speed": 52,
       "heading": null
     },
-    "updatedAt": "2025-10-01T07:44:38.169Z"
+    "updatedAt": "2025-10-01T08:05:18.050Z"
   },
   {
     "id": 103,
@@ -31,12 +31,12 @@
     "plate": "NC-1003",
     "status": "active",
     "gps": {
-      "lat": 7.291181,
-      "lng": 80.634381,
-      "speed": 39,
+      "lat": 7.289433,
+      "lng": 80.634775,
+      "speed": 47,
       "heading": null
     },
-    "updatedAt": "2025-10-01T07:44:38.179Z"
+    "updatedAt": "2025-10-01T08:05:18.060Z"
   },
   {
     "id": 104,
