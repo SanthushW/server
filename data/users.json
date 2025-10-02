@@ -46,7 +46,7 @@
   },
   {
     "username": "Admin01",
-    "password": "$2a$10$CDCR16ZrnolvaaaueREZC.BySuHNL/G6bdFEDUCTRZEp4b5VWWb2.",
+    "password": "$2a$10$XFQBdwMzX9dybDc2X6Lp9uFGXrVcRBVyCz./vKSaylTDekoOoeXu2",
     "role": "admin"
   },
   {
@@ -82,91 +82,6 @@
   {
     "username": "op_1759302197844",
     "password": "$2a$10$Tvi68d0bGHbvLx2hkx9OuuK3kla./5/2rc0EHvyx4A52D.YV25Qn.",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759302201722",
-    "password": "$2a$10$3Gb5VjxYNI67.cfMRKc.XOudkgo00QzvCpLibpIE.TO4oryG/g4CO",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759302342712",
-    "password": "$2a$10$VOURCICNvyOcBZ7oBbma0eINuYrvitU8jeBPbNYR78p0HzMDyAUGK",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759303167480",
-    "password": "$2a$10$mbgkDNHpHBKJQc6HEYoR.OZQ3aLEBRJSIVPUbKiS/Dw.nCSx5xm1y",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759303414578",
-    "password": "$2a$10$ieCDe797P20vwvW9innV5u79OKuFVl3f4tOX5Jf7wFZYHy9Bmhyc2",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759303830796",
-    "password": "$2a$10$mADZpHRYsTVgeAqepkp3He8t/uX0F4OVB./GBMXpSL5vagZbxF7zm",
-    "role": "operator"
-  },
-  {
-    "username": "op_1759308350579",
-    "password": "$2a$10$2gc3Fqj4Pw.lTvkfF3wAxulCQzxpq5ifK5bXBj/9DOl603RZUorLe",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759308353506",
-    "password": "$2a$10$FfH/hlDTQamyXNN3XMICfeKMEkijuGEtavADPexJ7u3id95PsMF2m",
-    "role": "operator"
-  },
-  {
-    "username": "op_1759316108575",
-    "password": "$2a$10$TfMVPO/lv1uA97bGxZyxCeuT8z3AAy5M3UBP/CCRmH6SdBT0KgVRK",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759316110522",
-    "password": "$2a$10$EYGJCLuNypGFqHpUCU.APu/eWhHrSaHYkz2vnD2qtv2wVG31yU96.",
-    "role": "operator"
-  },
-  {
-    "username": "op_1759316143257",
-    "password": "$2a$10$p8WaFSaISbDMfeNg3jLXYuimym845v7as6jvh4ByKuGlXFdOJ13sS",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759316145189",
-    "password": "$2a$10$LHKOfpy/44qyOVlH2It5VumjF.ie7BSa62QnLQboXosAabwsxl1vS",
-    "role": "operator"
-  },
-  {
-    "username": "op_1759316182378",
-    "password": "$2a$10$Cyp/cql9mYWgqreqmw9e7uFUK99akoC/35r.ZRaXuSeRoWw0B3OAm",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759316184246",
-    "password": "$2a$10$KF9hJiHaNag93Wr4acTHm.6eGObVFRP2JvjIuf8C2FoblVfr4Qhdq",
-    "role": "operator"
-  },
-  {
-    "username": "op_1759317524097",
-    "password": "$2a$10$QYLB3AGx4HXJmorwDfu14O/pLL.pi2lf3m6n8s/HcggSoV4AqtHtq",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759317525890",
-    "password": "$2a$10$obX.PbSK5lnREKolC4sGc.0uitPRgPqI3vFhvyCA/WhP3GppY939G",
-    "role": "operator"
-  },
-  {
-    "username": "op_1759396345243",
-    "password": "$2a$10$o28FCipEZKeoi51kyOlUEO67VMXOkJ3vFVqH0OE46tns7O6iIk2mO",
-    "role": "operator"
-  },
-  {
-    "username": "op_test_1759396346645",
-    "password": "$2a$10$iFxEAhbTbyaO6t5TfbRMxOtyC2MMnv5TLSKeE7PGf.UmfHVItsFnO",
     "role": "operator"
   }
 ]

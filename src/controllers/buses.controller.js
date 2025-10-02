@@ -1,7 +1,7 @@
 import { store } from '../store/jsonStore.js';
 import BusModel from '../models/bus.model.js';
 import { conditionalJson } from '../utils/httpCache.js';
-import { broadcastBusUpdate } from '../utils/sse.js';
+import { broadcastBusUpdate, addSseClient } from '../utils/sse.js';
 import { appendLocation } from '../store/locationStore.js';
 // validate not used in this controller; keep imports local to routes where needed
 import fs from 'fs';
@@ -50,6 +50,25 @@ export function listBuses(req, res) {
 export function getBus(req, res) {
   const bus = busModel.getById(req.params.id);
   if (!bus) return res.status(404).json({ message: 'Bus not found' });
+
+  // If the client wants a real-time stream for this bus (SSE), subscribe and
+  // immediately push the current state so they receive the latest location and
+  // subsequent updates. Trigger streaming when Accept includes text/event-stream
+  // or when ?stream=1 or ?stream=true is provided.
+  const accept = (req.headers.accept || '').toLowerCase();
+  const streamQuery = String(req.query.stream || '').toLowerCase();
+  const wantsSse = accept.includes('text/event-stream') || streamQuery === '1' || streamQuery === 'true';
+  if (wantsSse) {
+    // subscribe this response as an SSE client filtered to this bus id
+    addSseClient(res, { id: String(req.params.id) });
+    // immediately broadcast current bus state so client gets the latest point
+    try {
+      broadcastBusUpdate(bus);
+    } catch (e) {
+      // ignore broadcast errors — client will simply remain connected
+    }
+    return; // keep connection open for SSE
+  }
   let lastModified = null;
   if (bus && bus.updatedAt) lastModified = new Date(bus.updatedAt);
   else {

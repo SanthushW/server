@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { authenticate, requireRole } from '../middleware/auth.js';
 import { apiLimiter } from '../middleware/rateLimit.js';
 import { listBuses, getBus, createBus, updateBus, deleteBus, getBusLocations } from '../controllers/buses.controller.js';
+import { addSseClient } from '../utils/sse.js';
 import { Joi, validateBody, validateQuery } from '../middleware/validate.js';
 
 const router = Router();
@@ -66,6 +67,12 @@ router.get('/:id', apiLimiter, getBus);
  *         description: OK
  */
 router.get('/:id/locations', apiLimiter, getBusLocations);
+
+// SSE stream for a single bus (filtered server-side)
+router.get('/:id/sse', (req, res) => {
+  const id = req.params.id;
+  addSseClient(res, { id });
+});
 /**
  * @openapi
  * /buses:
