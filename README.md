@@ -74,3 +74,18 @@ node server.js
 curl.exe -N http://localhost:3000/realtime/sse
 
 npm run stimulate
+
+# ensure branches are up-to-date
+git checkout Dev
+git fetch origin
+git pull origin Dev
+
+# switch to master and merge dev
+git checkout master
+git fetch origin
+git merge origin/master      # update local master to remote
+git merge dev                # merge local dev into master
+# resolve conflicts if any, then:
+git add .
+git commit -m "Merge dev into master"   # only if merge created conflicts
+git push origin master
