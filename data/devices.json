@@ -1,7 +1,7 @@
 [
   {
     "deviceId": "device-101",
-    "secret": "dev_secret_device_101",
+    "secret": "$2a$10$BP.XL0YzLXczIlvtGqgyHuf86cDTkNQrCzForTSf3hUNJhg6//dAm",
     "description": "Demo device for bus 101",
     "enabled": true
   }

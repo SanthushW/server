@@ -75,6 +75,11 @@ curl.exe -N http://localhost:3000/realtime/sse
 
 npm run stimulate
 
+
+git config pull.rebase false
+git pull origin master
+git push origin master
+
 # ensure branches are up-to-date
 git checkout Dev
 git fetch origin

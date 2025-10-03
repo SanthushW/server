@@ -18,6 +18,13 @@ const options = {
           scheme: 'bearer',
           bearerFormat: 'JWT',
         },
+        // Device authentication via header (API key-like). Use value: "Device <deviceId>:<secret>"
+        deviceAuth: {
+          type: 'apiKey',
+          in: 'header',
+          name: 'Authorization',
+          description: 'Device auth header. Format: "Device <deviceId>:<secret>".\n\nExamples:\n- Legacy device header to paste into Authorize: Device device-101:dev_secret_device_101\n- Bearer token to paste into Authorize (select Bearer): Bearer <JWT_TOKEN_HERE>\n\nIn Swagger UI Authorize dialog, paste the full header value above (including the "Device " or "Bearer " prefix).',
+        },
       },
       schemas: {
         User: {
@@ -99,7 +106,30 @@ const options = {
         },
       },
     },
-    security: [{ bearerAuth: [] }],
+  // Default security requirements (APIs that require user JWTs). Individual endpoints
+  // can also reference the `deviceAuth` scheme where appropriate.
+  security: [{ bearerAuth: [] }],
+  },
+  // Reusable examples for request payloads and headers
+  examples: {
+    DeviceHeaderExample: {
+      summary: 'Device header example',
+      value: 'Device device-101:dev_secret_device_101'
+    },
+    BearerHeaderExample: {
+      summary: 'Bearer token example',
+      value: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'
+    },
+    IngestGpsExample: {
+      summary: 'Sample GPS payload',
+      value: {
+        busId: 101,
+        timestamp: '2025-10-03T12:00:00Z',
+        lat: 6.9271,
+        lng: 79.8612,
+        speed: 40
+      }
+    }
   },
   apis: ['./src/routes/*.js'],
 };

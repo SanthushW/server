@@ -99,6 +99,7 @@ router.post('/users', authenticate, requireRole('admin'), validateBody(Joi.objec
   role: Joi.string().valid('admin', 'operator', 'viewer').required(),
 })), createUserByAdmin);
 
+
 export default router;
 
 

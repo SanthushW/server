@@ -1,25 +1,24 @@
-#!/usr/bin/env node
-/*
-  Simple GPS simulator: POSTs to http://localhost:3000/ingest/gps every interval
-  Usage: node scripts/gps_simulator.js [busId] [intervalMs]
-  Example: node scripts/gps_simulator.js 101 2000
-*/
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
 
+// Default busId and interval; can be overridden by CLI args or env
 const args = process.argv.slice(2);
-// Accept busId as single number or comma-separated list, e.g. "101,102,103"
-const busArg = args[0] || '101';
-const busIds = busArg.split(',').map(s => Number(s.trim())).filter(n => !Number.isNaN(n));
-const intervalMs = Number(args[1] || 2000);
+// args: [busId] [intervalMs] optionally
+const busId = args[0] ? Number(args[0]) : (process.env.SIM_BUS_ID ? Number(process.env.SIM_BUS_ID) : 101);
+const intervalMs = args[1] ? Number(args[1]) : (process.env.SIM_INTERVAL_MS ? Number(process.env.SIM_INTERVAL_MS) : 10000);
+
+// Device auth: prefer env vars, or use defaults matching data/devices.json
+const deviceId = process.env.DEVICE_ID || `device-${busId}`;
+const deviceSecret = process.env.DEVICE_SECRET || `dev_secret_device_${busId}`;
 
 function loadInitialCoords(id) {
   try {
     const data = fs.readFileSync(path.resolve(process.cwd(), 'data', 'buses.json'), 'utf8');
     const buses = JSON.parse(data || '[]');
     const b = buses.find(x => Number(x.id) === Number(id));
-    if (b && b.gps && typeof b.gps.lat === 'number' && typeof b.gps.lng === 'number') return { lat: b.gps.lat, lng: b.gps.lng };
+    if (b && b.gps && typeof b.gps.lat === 'number' && typeof b.gps.lng === 'number')
+      return { lat: b.gps.lat, lng: b.gps.lng };
   } catch (e) {
     // ignore
   }
@@ -27,9 +26,8 @@ function loadInitialCoords(id) {
   return { lat: 6.9271, lng: 79.8612 };
 }
 
-// Maintain coords per bus
-const coordsMap = {};
-for (const id of busIds) coordsMap[id] = loadInitialCoords(id);
+// Maintain coords for bus 101
+const coords = loadInitialCoords(busId);
 
 function randomDelta() {
   // small jitter ~ up to 0.0005 degrees (~50m)
@@ -46,6 +44,8 @@ function postLocation(payload) {
     headers: {
       'Content-Type': 'application/json',
       'Content-Length': Buffer.byteLength(data),
+      // Device Authorization header: "Device deviceId:secret"
+      'Authorization': `Device ${deviceId}:${deviceSecret}`,
     },
   };
 
@@ -64,22 +64,19 @@ function postLocation(payload) {
   req.end();
 }
 
-console.log(`Starting GPS simulator for buses [${busIds.join(',')}] (interval ${intervalMs}ms). Ctrl+C to stop.`);
+console.log(`Starting GPS simulator for bus ${busId} (interval ${intervalMs / 1000}s). Ctrl+C to stop.`);
 
 const timer = setInterval(() => {
-  for (const id of busIds) {
-    const coords = coordsMap[id];
-    coords.lat += randomDelta();
-    coords.lng += randomDelta();
-    const payload = {
-      busId: id,
-      timestamp: new Date().toISOString(),
-      lat: Number(coords.lat.toFixed(6)),
-      lng: Number(coords.lng.toFixed(6)),
-      speed: Math.round(30 + Math.random() * 40),
-    };
-    postLocation(payload);
-  }
+  coords.lat += randomDelta();
+  coords.lng += randomDelta();
+  const payload = {
+    busId,
+    timestamp: new Date().toISOString(),
+    lat: Number(coords.lat.toFixed(6)),
+    lng: Number(coords.lng.toFixed(6)),
+    speed: Math.round(30 + Math.random() * 40),
+  };
+  postLocation(payload);
 }, intervalMs);
 
 process.on('SIGINT', () => {
