@@ -31,7 +31,7 @@ const options = {
           type: 'apiKey',
           in: 'header',
           name: 'Authorization',
-          description: 'Device auth header. Format: "Device <deviceId>:<secret>".\n\nExamples:\n- Legacy device header to paste into Authorize: Device device-101:dev_secret_device_101\n- Bearer token to paste into Authorize (select Bearer): Bearer <JWT_TOKEN_HERE>\n\nIn Swagger UI Authorize dialog, paste the full header value above (including the "Device " or "Bearer " prefix).',
+          description: 'Device auth header. Format: "Device <deviceId>:<secret>".',
         },
       },
       schemas: {
