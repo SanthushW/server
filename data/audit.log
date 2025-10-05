@@ -2216,3 +2216,15 @@
 {"time":"2025-10-03T09:21:20.777Z","method":"POST","path":"/auth/device-token","status":200,"user":null,"ip":"::1","durationMs":143}
 {"time":"2025-10-03T09:21:48.148Z","method":"POST","path":"/ingest/gps","status":401,"user":null,"ip":"::1","durationMs":6}
 {"time":"2025-10-03T12:54:16.788Z","method":"POST","path":"/ingest/gps","status":400,"user":null,"ip":"::1","durationMs":34}
+{"time":"2025-10-04T09:28:31.213Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":142}
+{"time":"2025-10-04T09:28:31.341Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":109}
+{"time":"2025-10-04T09:28:31.453Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1759570110905","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":25}
+{"time":"2025-10-04T09:28:34.739Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":204}
+{"time":"2025-10-04T09:28:34.767Z","method":"POST","path":"/auth/users","status":403,"user":{"id":"someUser","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":10}
+{"time":"2025-10-04T09:28:34.795Z","method":"POST","path":"/auth/users","status":400,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":10}
+{"time":"2025-10-04T09:28:52.622Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":185}
+{"time":"2025-10-04T09:28:52.765Z","method":"POST","path":"/auth/login","status":200,"user":null,"ip":"::ffff:127.0.0.1","durationMs":126}
+{"time":"2025-10-04T09:28:52.980Z","method":"POST","path":"/trips","status":201,"user":{"id":"op_1759570132360","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":153}
+{"time":"2025-10-04T09:28:54.184Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":152}
+{"time":"2025-10-04T09:28:54.207Z","method":"POST","path":"/auth/users","status":403,"user":{"id":"someUser","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":3}
+{"time":"2025-10-04T09:28:54.233Z","method":"POST","path":"/auth/users","status":400,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":8}
