@@ -10,6 +10,7 @@ const options = {
     },
     servers: [
       { url: 'http://localhost:3000', description: 'Local' },
+      { url: 'https://bus-tracker.up.railway.app', description: 'Production (Railway)' },
     ],
     components: {
       securitySchemes: {
