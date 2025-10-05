@@ -1,5 +1,7 @@
 import swaggerJsdoc from 'swagger-jsdoc';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const options = {
   definition: {
     openapi: '3.0.3',
@@ -8,10 +10,15 @@ const options = {
       version: '1.0.0',
       description: 'API for the National Transport Commission of Sri Lanka. Provides CRUD for routes, buses, and trips; JWT-protected write operations; Server-Sent Events for real-time bus updates.',
     },
-    servers: [
-      { url: 'http://localhost:3000', description: 'Local' },
-      { url: 'https://bus-tracker.up.railway.app', description: 'Production (Railway)' },
-    ],
+    servers: isProduction
+      ? [
+          { url: 'https://bus-tracker.up.railway.app', description: 'Production (Railway)' },
+          { url: 'http://localhost:3000', description: 'Local' },
+        ]
+      : [
+          { url: 'http://localhost:3000', description: 'Local' },
+          { url: 'https://bus-tracker.up.railway.app', description: 'Production (Railway)' },
+        ],
     components: {
       securitySchemes: {
         bearerAuth: {
