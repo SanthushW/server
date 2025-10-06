@@ -12,6 +12,8 @@ const router = Router();
  * /buses:
  *   get:
  *     summary: List all buses
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: query
  *         name: route
@@ -24,8 +26,10 @@ const router = Router();
  *     responses:
  *       200:
  *         description: OK
+ *       401:
+ *         description: Unauthorized
  */
-router.get('/', apiLimiter, validateQuery(Joi.object({
+router.get('/', authenticate, apiLimiter, validateQuery(Joi.object({
   route: Joi.string().optional(),
   status: Joi.string().valid('active', 'inactive', 'maintenance').optional(),
   search: Joi.string().optional(),
@@ -38,6 +42,8 @@ router.get('/', apiLimiter, validateQuery(Joi.object({
  * /buses/{id}:
  *   get:
  *     summary: Get bus by ID
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -47,15 +53,19 @@ router.get('/', apiLimiter, validateQuery(Joi.object({
  *     responses:
  *       200:
  *         description: OK
+ *       401:
+ *         description: Unauthorized
  *       404:
  *         description: Not Found
  */
-router.get('/:id', apiLimiter, getBus);
+router.get('/:id', authenticate, apiLimiter, getBus);
 /**
  * @openapi
  * /buses/{id}/locations:
  *   get:
  *     summary: Get recent GPS history for a bus (last 100 points)
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -65,8 +75,10 @@ router.get('/:id', apiLimiter, getBus);
  *     responses:
  *       200:
  *         description: OK
+ *       401:
+ *         description: Unauthorized
  */
-router.get('/:id/locations', apiLimiter, getBusLocations);
+router.get('/:id/locations', authenticate, apiLimiter, getBusLocations);
 
 // SSE stream for a single bus (filtered server-side)
 router.get('/:id/sse', (req, res) => {

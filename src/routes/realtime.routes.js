@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { authenticate } from '../middleware/auth.js';
 import { addSseClient } from '../utils/sse.js';
 
 const router = Router();
@@ -8,16 +9,38 @@ const router = Router();
  * /realtime/sse:
  *   get:
  *     summary: Subscribe to real-time bus updates via SSE
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: Event stream
+ *       401:
+ *         description: Unauthorized
  */
-router.get('/sse', (req, res) => {
+router.get('/sse', authenticate, (req, res) => {
   addSseClient(res);
 });
 
-// Subscribe to SSE updates for a single bus id (server-side filtered)
-router.get('/sse/:id', (req, res) => {
+/**
+ * @openapi
+ * /realtime/sse/{id}:
+ *   get:
+ *     summary: Subscribe to real-time updates for a specific bus via SSE
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Event stream
+ *       401:
+ *         description: Unauthorized
+ */
+router.get('/sse/:id', authenticate, (req, res) => {
   const id = req.params.id;
   addSseClient(res, { id });
 });

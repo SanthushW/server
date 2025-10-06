@@ -11,6 +11,8 @@ const router = Router();
  * /trips:
  *   get:
  *     summary: List all trips
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: query
  *         name: date
@@ -20,8 +22,10 @@ const router = Router();
  *     responses:
  *       200:
  *         description: OK
+ *       401:
+ *         description: Unauthorized
  */
-router.get('/', apiLimiter, validateQuery(Joi.object({
+router.get('/', authenticate, apiLimiter, validateQuery(Joi.object({
   date: Joi.string().isoDate().optional(),
   busId: Joi.number().integer().optional(),
   routeId: Joi.number().integer().optional(),
@@ -34,6 +38,8 @@ router.get('/', apiLimiter, validateQuery(Joi.object({
  * /trips/{id}:
  *   get:
  *     summary: Get trip by ID
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -43,10 +49,12 @@ router.get('/', apiLimiter, validateQuery(Joi.object({
  *     responses:
  *       200:
  *         description: OK
+ *       401:
+ *         description: Unauthorized
  *       404:
  *         description: Not Found
  */
-router.get('/:id', apiLimiter, getTrip);
+router.get('/:id', authenticate, apiLimiter, getTrip);
 /**
  * @openapi
  * /trips:

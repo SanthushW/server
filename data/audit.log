@@ -2228,3 +2228,8 @@
 {"time":"2025-10-04T09:28:54.184Z","method":"POST","path":"/auth/users","status":201,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":152}
 {"time":"2025-10-04T09:28:54.207Z","method":"POST","path":"/auth/users","status":403,"user":{"id":"someUser","role":"operator"},"ip":"::ffff:127.0.0.1","durationMs":3}
 {"time":"2025-10-04T09:28:54.233Z","method":"POST","path":"/auth/users","status":400,"user":{"id":"Admin","role":"admin"},"ip":"::ffff:127.0.0.1","durationMs":8}
+{"time":"2025-10-06T06:13:36.568Z","method":"POST","path":"/auth/register","status":400,"user":null,"ip":"::1","durationMs":19}
+{"time":"2025-10-06T06:13:53.868Z","method":"POST","path":"/auth/register","status":201,"user":null,"ip":"::1","durationMs":227}
+{"time":"2025-10-06T06:15:03.206Z","method":"POST","path":"/routes","status":403,"user":{"id":"San","role":"viewer"},"ip":"::1","durationMs":34}
+{"time":"2025-10-06T06:15:37.272Z","method":"POST","path":"/ingest/gps","status":400,"user":null,"ip":"::1","durationMs":53}
+{"time":"2025-10-06T06:15:47.064Z","method":"POST","path":"/ingest/gps","status":202,"user":null,"ip":"::1","durationMs":47}
