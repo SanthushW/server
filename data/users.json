@@ -103,5 +103,10 @@
     "username": "op_test_1759570133983",
     "password": "$2a$10$7I5L4s4jeSEnOm6JIrug9um2NpKGSDsuFV9u1R5H2i7VLvlKHqcey",
     "role": "operator"
+  },
+  {
+    "username": "San",
+    "password": "$2a$10$2HFyudc.W2gUFYO2IU48M.17Co486TS44aXiYe0F1ng6NjexWAgla",
+    "role": "viewer"
   }
 ]

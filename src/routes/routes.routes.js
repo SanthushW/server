@@ -11,6 +11,8 @@ const router = Router();
  * /routes:
  *   get:
  *     summary: List all routes
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: query
  *         name: name
@@ -27,8 +29,10 @@ const router = Router();
  *     responses:
  *       200:
  *         description: OK
+ *       401:
+ *         description: Unauthorized
  */
-router.get('/', apiLimiter, validateQuery(Joi.object({
+router.get('/', authenticate, apiLimiter, validateQuery(Joi.object({
   name: Joi.string().optional(),
   origin: Joi.string().optional(),
   destination: Joi.string().optional(),
@@ -41,6 +45,8 @@ router.get('/', apiLimiter, validateQuery(Joi.object({
  * /routes/{id}:
  *   get:
  *     summary: Get route by ID
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -50,10 +56,12 @@ router.get('/', apiLimiter, validateQuery(Joi.object({
  *     responses:
  *       200:
  *         description: OK
+ *       401:
+ *         description: Unauthorized
  *       404:
  *         description: Not Found
  */
-router.get('/:id', apiLimiter, getRoute);
+router.get('/:id', authenticate, apiLimiter, getRoute);
 /**
  * @openapi
  * /routes:

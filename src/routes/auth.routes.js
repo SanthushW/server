@@ -48,7 +48,7 @@ router.post('/register', authLimiter, validateBody(Joi.object({
  *           examples:
  *             login:
  *               value:
- *                 username: Admin
+ *                 username: Admin01
  *                 password: admin123
  *     responses:
  *       200:
